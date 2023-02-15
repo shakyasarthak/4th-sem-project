@@ -1,0 +1,22 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "this is express app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akira-lawliet/4th-sem-project.git"
+  },
+  "author": "sarthak shakya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akira-lawliet/4th-sem-project/issues"
+  },
+  "homepage": "https://github.com/akira-lawliet/4th-sem-project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
