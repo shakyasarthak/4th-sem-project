@@ -1,9 +1,11 @@
 import React from 'react';
-import home from "./components/landing pg/home";
+import Home from './components/landing_page/Home';
 
 function App() {
   return (
-   <home/>
+    <div>
+      <Home />
+    </div>
   );
 }
 
