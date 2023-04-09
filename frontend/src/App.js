@@ -1,5 +1,5 @@
 import React from 'react';
-import home from "./components/home";
+import home from "./components/landing pg/home";
 
 function App() {
   return (
