@@ -2,6 +2,7 @@ import React from 'react';
 import x from '/src/styles/Navbar.module.css';
 import Link from 'next/link';
 
+
 const Navbar =() => {
   return (
     <nav>
@@ -10,9 +11,9 @@ const Navbar =() => {
        this is logo
       </div>
       <div class={x.nav_bar}>
-        <Link class ={x.menu} href ='/'>HOME</Link>
-        <Link class ={x.menu} href ='/About'>ABOUT</Link>
-        <Link class ={x.menu} href ='/Contact'>CONTACT</Link>
+        <Link class ={x.menu} href ="/">HOME</Link>
+        <Link class ={x.menu} href ="/components/landing_page/About">ABOUT</Link>
+        <Link class ={x.menu} href ="/components/landing_page/Contact">CONTACT</Link>
       </div>
       <div class={x.logins}>
       <Link href="#">
