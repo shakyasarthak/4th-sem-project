@@ -30,7 +30,7 @@ const Navbar =() => {
     // </nav>
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <Link className="navbar-brand" href="#">Navbar</Link>
+    <Link className="navbar-brand" href="/">KU PATHSALA</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -46,7 +46,7 @@ const Navbar =() => {
           <Link className="nav-link" href="/components/landing_page/About">ABOUT</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" href="/components/login/Login">Login</Link>
+          <Link className="nav-link" href="/components/login/Login">LOGIN</Link>
         </li>
         
      
