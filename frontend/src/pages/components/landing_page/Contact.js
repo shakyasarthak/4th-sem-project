@@ -6,9 +6,14 @@ function Contact() {
   return (
     <>
     <Navbar/>
+    <div class={x.outer_wrapper}> 
       <div class={x.contact_wrapper}>
-      <h1>THIS IS CONTACT PAGE</h1>
+      <h1>KNOW THE TEAM</h1>
     </div>
+    <div class={x.info_box}>
+      This is box
+    </div>
+    </div>     
     </>  
   );
 }
