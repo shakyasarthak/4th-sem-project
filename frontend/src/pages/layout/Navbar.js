@@ -46,7 +46,7 @@ const Navbar =() => {
           <Link className="nav-link" href="/components/landing_page/About">ABOUT</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" href="/components/login/Login">Login</Link>
+          <Link className="nav-link" href="/components/login/Login">LOGIN</Link>
         </li>
         
      
