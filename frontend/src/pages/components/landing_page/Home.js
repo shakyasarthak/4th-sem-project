@@ -1,9 +1,10 @@
-import Navbar from './Navbar';
+
 import y from '/src/styles/Home.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function Home() {
   return (
     <>
-      <Navbar/>
+      
       <div class={y.mid_home_wrapper}>
         this is an image
       </div>   
