@@ -1,87 +1,59 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function Contact() {
   return (
-    <>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-
-<div class="container bootdey">
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Our Business Minds</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Build responsive, mobile-first projects on the web with the world's most popular front-end component library.</p>
-                </div>
+    <>    
+    <div class="container py-5">
+        <div class="row text-center text-white">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4">Know the team</h1>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="team text-center rounded p-3 py-4">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt=""/>
-                    <div class="content mt-3">
-                        <h4 class="title mb-0">Lisa Martin</h4>
-                        <small class="text-muted">Founder</small>
-                        <ul class="list-unstyled mt-3 social-icon social mb-0">
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
-                        </ul>
-                    </div>
+
+    <div class="container">
+        <div class="row text-center">
+
+  
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="/person.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
+                    <h5 class="mb-0">Sarthak Shakya</h5>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-github"></i></a></li>           
+                    </ul>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="team text-center rounded p-3 py-4">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt=""/>
-                    <div class="content mt-3">
-                        <h4 class="title mb-0">Calvin Carlo</h4>
-                        <small class="text-muted">C.E.O.</small>
-                        <ul class="list-unstyled mt-3 social-icon social mb-0">
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
-                        </ul>
-                    </div>
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
+                    <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-github"></i></a></li>           
+                    </ul>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="team text-center rounded p-3 py-4">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt=""/>
-                    <div class="content mt-3">
-                        <h4 class="title mb-0">Richha Jotchi</h4>
-                        <small class="text-muted">Manager</small>
-                        <ul class="list-unstyled mt-3 social-icon social mb-0">
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
-                        </ul>
-                    </div>
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
+                    <h5 class="mb-0">Tom Sunderland</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-github"></i></a></li>           
+                    </ul>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="team text-center rounded p-3 py-4">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt=""/>
-                    <div class="content mt-3">
-                        <h4 class="title mb-0">Cristino Murfy</h4>
-                        <small class="text-muted">Accountant</small>
-                        <ul class="list-unstyled mt-3 social-icon social mb-0">
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
-                        </ul>
-                    </div>
+
+      
+            <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
+                    <h5 class="mb-0">John Tarly</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-github"></i></a></li>           
+                    </ul>
                 </div>
             </div>
         </div>
