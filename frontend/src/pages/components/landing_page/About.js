@@ -1,16 +1,40 @@
-import React from 'react';
 
+
+import React from "react";
 import x from '/src/styles/About.module.css';
+import Image from 'next/image';
 
-function Contact() {
-  return (
-    <>
+const AboutUs = () => (
+  
+  <div className={x.Container}>
+  
+  
+  <div className={x.image}>
+  </div>
+
+  <div className={x.Text}>
+  
+    <h1>About Our Project</h1>
     
-      <div className={x.about_wrapper}>
-      <h1>THIS IS ABOUT PAGE</h1>
+    <div className={x.para}>
+    <p></p>
     </div>
-    </>  
-  );
-}
+  
+ 
+  </div>
 
-export default Contact;
+</div>
+
+  
+ 
+ 
+);
+
+export default AboutUs;
+
+
+  
+
+  
+  
+
