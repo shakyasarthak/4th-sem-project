@@ -5,10 +5,10 @@ function Home() {
   return (
     <>
       
-      <div class={y.mid_home_wrapper}>
+      <div className={y.mid_home_wrapper}>
         this is an image
       </div>   
-      <div class={y.bottom_home_wrapper}>
+      <div className={y.bottom_home_wrapper}>
         this is bottom of the home page
       </div> 
     </>    
