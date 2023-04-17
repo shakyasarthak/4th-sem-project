@@ -1,3 +1,46 @@
-.about_wrapper{
-    background-color: green;
+/* .image{
+background-image: url("../assets/About.jpg"); 
+background-color: aliceblue;
+background-repeat: no-repeat; 
+width: 100%;
+height: 400px;
+background-size: cover;
 }
+
+.Text{
+
+  text-align: Center;
+}
+
+
+
+ */
+
+ .image{
+  background-image: url("../assets/About.jpg"); 
+  background-color: aliceblue;
+  background-repeat: no-repeat; 
+  width: 50%;
+  height: 92vh;
+  background-size: cover;
+  display: block;
+  }
+  
+  .Text{
+  
+    text-align: Center;
+    margin-top: -92vh;
+    margin-right: -800px;
+    
+    
+  }
+
+  .Container{
+overflow-x:hidden;
+min-height: 92vh;
+  }
+
+  .para {
+    text-align: center;
+    width:100px
+   }
