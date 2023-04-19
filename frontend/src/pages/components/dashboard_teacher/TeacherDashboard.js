@@ -1,30 +1,3 @@
-// import React from "react";
-// import ClassList from "./ClassList";
-
-// function TeacherDashboard() {
-//   return (
-//     <div>
-//       {/* <h2>Teacher Dashboard</h2>
-//       <nav>
-//         <ul>
-//           <li>
-//             <a href="#">Create New Class</a>
-//           </li>
-//           <li>
-//             <a href="#">Add Assignment</a>
-//           </li>
-//           <li>
-//             <a href="#">Add Quiz</a>
-//           </li>
-//         </ul>
-//       </nav>
-//       <hr /> */}
-//       <ClassList />
-//     </div>
-//   );
-// }
-
-// export default TeacherDashboard;
 import React, { useState } from "react";
 import CreateClass from "./CreateClass";
 import Assignment from "./Assignment";
@@ -85,24 +58,6 @@ function TeacherDashboards() {
           <button onClick={() => handleDeleteClass(selectedClass.classCode)}>Delete Class</button>
           <Assignment classCode={selectedClass.classCode}/>
             <Quiz classCode={selectedClass.classCode}/>
-          {/* <hr />
-          <nav>
-            <ul>
-              <li>
-                <a href="#" onClick={() => setSelectedClass({ ...selectedClass, action: "assignment" })}>
-                  Add Assignment
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={() => setSelectedClass({ ...selectedClass, action: "quiz" })}>
-                  Add Quiz
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <hr />
-          {selectedClass.action === "assignment" && <Assignment classCode={selectedClass.classCode} />}
-          {selectedClass.action === "quiz" && <Quiz classCode={selectedClass.classCode} />} */}
         </div>
       )}
       {!selectedClass && (

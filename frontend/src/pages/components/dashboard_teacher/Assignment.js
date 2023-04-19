@@ -45,7 +45,7 @@ const Assignment = ({ classCode }) => {
         </label>
         <label>
           Deadline:
-          <input type="datetime-local" name="deadline" />
+          <input type="datetime-local" name="deadline" required/>
         </label>
         <button type="submit">Add</button>
       </form>
