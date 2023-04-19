@@ -5,6 +5,8 @@ import Layout from './layout/Layout';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 export default function App({ Component, pageProps, session }) {
   useEffect(() => {
     typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null

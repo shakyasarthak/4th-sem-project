@@ -19,7 +19,7 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 18 px;
-    position: relative;
+    position:relative;
     width: 100px;
     height: 100px;
     top: 30%;
@@ -37,6 +37,7 @@
     height: 2px;
     bottom: 5px;
     left: 0;
+    right: 0;
     background-color:white;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
@@ -53,11 +54,11 @@
     padding: 1px 15px;
     text-decoration: none;
     font-size: 16 px;
-    position: relative;
+    position: absolute;
     width: fit-content;
     height: 30px;
     top: 20%;
-    left: 1745%;
+    right: 0%;
     border: none;
     border-radius: 5px;
     margin-right: 5px;
@@ -72,5 +73,56 @@
   
   .logins button:hover {
     background-color: rgb(255, 221, 27);
+  }
+  
+  @media (max-width: 1215px) {
+    .nav_bar_wrapper {
+      height: auto; 
+      flex-direction: column; 
+    }
+  
+    .nav_bar a {
+    font-size: 16px;
+    padding: 8px 16px;
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+    margin: 0;
+    }
+  
+    .logins button {
+      padding: 1px 15px  ;
+      font-size: 16px;
+      border-radius: 10px; 
+      height: fit-content;
+      width: fit-content;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav_bar_wrapper {
+      height: auto; 
+      flex-direction: column; 
+    }
+  
+    .nav_bar a {
+    font-size: 14px;
+    padding: 8px 16px;
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+    margin: 0;
+    }
+  
+    .logins button {
+      padding: 1px 13px  ;
+      font-size: 14px;
+      border-radius: 10px; 
+      height: auto;
+      margin: 0;
+     
+    }
   }
   
