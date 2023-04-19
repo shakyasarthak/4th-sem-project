@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EnrollClass from "./EnrollClass";
-import Assignment from "./SAssignment";
-import Quiz from "./SQuiz";
+import SAssignment from "./SAssignment";
+import SQuiz from "./SQuiz";
 
 function SClassLists() {
   const [classes, setClasses] = useState([]);
@@ -66,8 +66,16 @@ function SClassLists() {
             <strong>Class Code: </strong>
             {selectedClass.classCode}
           </p>
-          <Assignment classCode={selectedClass.classCode} />
-          <Quiz classCode={selectedClass.classCode} />
+          <p>
+            <strong>Assignments:</strong>
+            {selectedClass.Assignments}
+          </p>
+          <p>
+            <strong>Quiz:</strong>
+            {selectedClass.SQuiz}
+          </p>
+          <SAssignment classCode={selectedClass.classCode} />
+          <SQuiz classCode={selectedClass.classCode} />
           <button onClick={handleHideDetails}>Back to Class List</button>
         </div>
       ) : (
