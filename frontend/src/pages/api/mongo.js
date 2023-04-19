@@ -1,8 +1,3 @@
-// import mongoose from 'mongoose';
-
-// const connectDB = async () => mongoose.connect("mongodb://localhost:27017/student"); // mongodb://localhost:27017/student is the connection string
-
-// export default connectDB;
 
 import { MongoClient } from 'mongodb';
 import nextConnect from 'next-connect';
