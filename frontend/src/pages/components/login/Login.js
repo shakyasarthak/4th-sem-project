@@ -14,7 +14,7 @@ from 'mdb-react-ui-kit';
 
 function Login() {
   return (
-    <MDBContainer className="my-5">
+    <MDBContainer className="my-5" action="./api/std_login_auth" method="post">
 
       <MDBCard>
         <MDBRow className='g-0'>
