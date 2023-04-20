@@ -1,7 +1,7 @@
-import x from '/src/styles/Navbar.module.css';
+// import x from '/src/styles/Navbar.module.css';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import as from '/src/styles/AssignmentSubmit.module.css';
+import as from '/styles/AssignmentSubmit.module.css';
 import { useState } from 'react'
 
 export default function Assignment() {

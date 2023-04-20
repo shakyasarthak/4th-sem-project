@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import EnrollClass from "./enrollClass";
-import Assignment from "./SAssignment";
-import Quiz from "./SQuiz";
+import Assignment from './studentAssignmnet';
+import Quiz from './studentQuiz';
+
 
 function SClassLists() {
   const [classes, setClasses] = useState([]);

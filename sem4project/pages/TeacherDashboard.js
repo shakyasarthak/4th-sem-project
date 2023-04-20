@@ -26,9 +26,12 @@
 
 // export default TeacherDashboard;
 import React, { useState } from "react";
-import CreateClass from "./CreateClass";
-import Assignment from "./Assignment";
-import Quiz from "./Quiz";
+import Assignment from './studentAssignmnet';
+import Quiz from './studentQuiz';
+import CreateClass from './teacherCreateClass';
+
+
+
 
 function TeacherDashboards() {
   const [classes, setClasses] = useState([]);

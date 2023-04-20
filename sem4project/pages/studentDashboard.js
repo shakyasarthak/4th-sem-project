@@ -1,40 +1,37 @@
 // import React, { useState } from "react";
-// import SAssignment from "./SAssignment";
-// import SQuiz from "./SQuiz";
-// import JoinClass from "./EnrollClass";
+// import SAssignment from './studentAssignmnet';
+// import SQuiz from './studentQuiz';
 
-// function StudentDashboard() {
-//   const [classes, setClasses] = useState([]);
 
-//   const handleJoinClass = (newClass) => {
-//     setClasses([...classes, newClass]);
-//   };
 
-//   return (
-//     <div>
-//       <h2>Student Dashboard</h2>
-//       <JoinClass onJoinClass={handleJoinClass} />
-//       <hr />
-//       {classes.map((classData, index) => (
-//         <div key={index}>
-//           <h3>{classData.className}</h3>
-//           <p>{classData.description}</p>
-//           <p>Class Code: {classData.classCode}</p>
-//           <SAssignment classCode={classData.classCode} assignments={classData.assignments} />
-//           <SQuiz classCode={classData.classCode} quizzes={classData.quizzes} />
-//           <hr />
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
+// // function StudentDashboard() {
+// //   const [classes, setClasses] = useState([]);
 
-// export default StudentDashboard;
-// import React, { useState } from "react";
-// import SClassList from "./SClassList";
-// import SAssignment from "./SAssignment";
-// import SQuiz from "./SQuiz";
-// import EnrollClass from "./EnrollClass";
+// //   const handleJoinClass = (newClass) => {
+// //     setClasses([...classes, newClass]);
+// //   };
+
+// //   return (
+// //     <div>
+// //       <h2>Student Dashboard</h2>
+// //       <JoinClass onJoinClass={handleJoinClass} />
+// //       <hr />
+// //       {classes.map((classData, index) => (
+// //         <div key={index}>
+// //           <h3>{classData.className}</h3>
+// //           <p>{classData.description}</p>
+// //           <p>Class Code: {classData.classCode}</p>
+// //           <SAssignment classCode={classData.classCode} assignments={classData.assignments} />
+// //           <SQuiz classCode={classData.classCode} quizzes={classData.quizzes} />
+// //           <hr />
+// //         </div>
+// //       ))}
+// //     </div>
+// //   );
+// // }
+
+// // export default StudentDashboard;
+
 
 // function StudentDashboard() {
 //   const [classes, setClasses] = useState([]);
@@ -95,21 +92,28 @@
 
 // export default StudentDashboard;
 
-import React from 'react'
-import { useSession } from 'next-auth/client'
+// // import React from 'react'
+// // import { useSession } from 'next-auth/react'
 
-const DashboardPage = () => {
-  const [session, loading] = useSession()
 
-  if (loading) {
-    return <div>Loading...</div>
-  }
+// // const DashboardPage = () => {
+// //   const [session, loading] = useSession()
 
-  if (!session) {
-    return <div>You need to sign in first.</div>
-  }
+// //   if (loading) {
+// //     return <div>Loading...</div>
+// //   }
 
-  return <div>Welcome to the dashboard, {session.user.name}!</div>
+// //   if (!session) {
+// //     return <div>You need to sign in first.</div>
+// //   }
+
+// //   return <div>Welcome to the dashboard, {session.user.name}!</div>
+// // }
+
+// // export default DashboardPage
+
+function Home () {
+  return <></>
 }
 
-export default DashboardPage
+export default Home

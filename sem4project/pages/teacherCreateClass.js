@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Assignment from "./Assignment";
-import Quiz from "./Quiz";
+import Assignment from './studentAssignmnet';
+import Quiz from './studentQuiz';
 
 function CreateClasses(props) {
   const [className, setClassName] = useState("");
