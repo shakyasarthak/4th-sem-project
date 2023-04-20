@@ -1,5 +1,5 @@
 import React from 'react';
-import x from '/src/styles/Navbar.module.css';
+import x from '/styles/Navbar.module.css';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,11 +13,11 @@ const Navbar =() => {
         </div>
         <div className={x.nav_bar}>
           <Link class ={x.menu} href ="/">HOME</Link>
-          <Link class ={x.menu} href ="/components/landing_page/About">ABOUT</Link>
-          <Link class ={x.menu} href ="/components/landing_page/Contact">CONTACT</Link>
+          <Link class ={x.menu} href ='/About'>ABOUT</Link>
+          <Link class ={x.menu} href ="/Contact">CONTACT</Link>
         </div>
         <div className={x.logins}>
-        <Link href="/components/login/Login">
+        <Link href="/Login">
             <button className={x.btn}>
               LOGIN
             </button></Link>

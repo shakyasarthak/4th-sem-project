@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import NotesList from './NotesList';
+
+import NotesList from './notesList';
+
 
 const Notes_F = () => {
 	const [notes, setNotes] = useState([

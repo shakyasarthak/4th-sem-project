@@ -1,5 +1,8 @@
-import Note from "./Note";
-import AddNote from "./AddNote";
+import AddNote from "./addNote";
+import Note from './note';
+
+
+
 const NotesList = ({notes,handleAddNote,handleDeleteNote}) => {
    return(
     <div className="notes-list">

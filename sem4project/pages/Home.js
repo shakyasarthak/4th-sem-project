@@ -1,5 +1,6 @@
 
-import y from '/src/styles/Home.module.css';
+import y from 'styles/Home.module.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 function Home() {
   return (

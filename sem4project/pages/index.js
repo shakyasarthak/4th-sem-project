@@ -1,4 +1,6 @@
-import Home from "./components/landing_page/Home";
+
+import Home from './Home';
+
 
 const Index = () => {
   return (
