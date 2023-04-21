@@ -17,7 +17,7 @@ const Navbar =() => {
           <Link class ={x.menu} href ="/Contact">CONTACT</Link>
         </div>
         <div className={x.logins}>
-        <Link href="/Login">
+        <Link href="/loginChoice">
             <button className={x.btn}>
               LOGIN
             </button></Link>
