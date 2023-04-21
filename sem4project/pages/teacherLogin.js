@@ -53,11 +53,7 @@ const teacherLogin = () => {
               Sign in
             </button>
 
-            <div className="text-center">
-              <p>
-                Not a member? <Link href="/register">Register</Link>
-              </p>
-            </div>
+          
           </form>
         </div>
       </div>
