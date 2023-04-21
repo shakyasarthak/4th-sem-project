@@ -1,4 +1,4 @@
-import AddNote from "./addNote";
+import AddNote from "./noteAdd";
 import Note from './note';
 
 

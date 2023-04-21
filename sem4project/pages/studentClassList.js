@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import EnrollClass from "./enrollClass";
+import EnrollClass from "./Std_enrollClass";
 import Assignment from "./SAssignment";
 import Quiz from "./SQuiz";
 
