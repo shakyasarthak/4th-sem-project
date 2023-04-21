@@ -2,8 +2,10 @@
 
   import React, { useState } from "react";
   import { useRouter } from 'next/router'
+  import Layout from './layout/Layout';
 
   const adminLogin = () => {
+    
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
@@ -19,6 +21,7 @@
    };
 
     return (
+      <Layout navbarType={1}>
       <div className="container container-fluid">
         <div className="row mt-5 d-flex justify-content-center">
           <div className="col-10 col-lg-5 ">
@@ -66,6 +69,7 @@
           </div>
         </div>
       </div>
+      </Layout>
     );
   };
 

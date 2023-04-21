@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import person_image from '/public/person.png';
+import Layout from './layout/Layout';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Contact() {
     return (
       <>    
+<Layout navbarType={1}>
 <div class="container py-5">
     <div class="row text-center">
         <div class="col-lg-8 mx-auto">
@@ -57,6 +59,7 @@ function Contact() {
         </div>
     </div>
 </div>
+</Layout>
       </>  
     );
   }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import Layout from './layout/Layout';
 
 const teacherLogin = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ const teacherLogin = () => {
   };
 
   return (
+    <Layout navbarType={1}>
     <div className="container container-fluid">
       <div className="row mt-5 d-flex justify-content-center">
         <div className="col-10 col-lg-5 ">
@@ -58,6 +60,7 @@ const teacherLogin = () => {
         </div>
       </div>
     </div>
+    </Layout>
   );
 };
 

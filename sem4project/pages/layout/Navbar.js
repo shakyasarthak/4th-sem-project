@@ -25,33 +25,56 @@ const Navbar =() => {
         </div>
     </div>
     </nav>
-//   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-//   <div className="container-fluid">
-//     <Link className="navbar-brand" href="/">KU PATHSALA</Link>
-//     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-//       <span className="navbar-toggler-icon"></span>
-//     </button>
-//     <div className="collapse justify-content-center navbar-collapse" id="navbarNav">
-//       <ul className="navbar-nav">
-//         <li className="nav-item">
-//           <Link className="nav-link active" aria-current="page" href="/">HOME</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" href="/components/landing_page/Contact">CONTACT</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" href="/components/landing_page/About">ABOUT</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" href="/components/login/Login">LOGIN</Link>
-//         </li>
-        
-     
-//       </ul>
-//     </div>
-//   </div>
-// </nav>
   );
 }
 
 export default Navbar;
+
+export const NavbarUser =() => {
+  return (
+    <nav>
+      <div className={x.nav_bar_wrapper}>
+        <div className={x.logo}>
+        this is logo
+        </div>
+        <div className={x.nav_bar}>
+          <Link class ={x.menu} href ="/">HOME</Link>
+          <Link class ={x.menu} href ='/About'>ABOUT</Link>
+          <Link class ={x.menu} href ="/Contact">CONTACT</Link>
+        </div>
+        <div className={x.logins}>
+        <Link href="/loginChoice">
+            <button className={x.btn}>
+              LOGIN
+            </button></Link>
+         
+        </div>
+    </div>
+    </nav>
+  );
+}
+
+export const NavbarAdmin =() => {
+  return (
+    <nav>
+      <div className={x.nav_bar_wrapper}>
+        <div className={x.logo}>
+        this is logo
+        </div>
+        <div className={x.nav_bar}>
+          <Link class ={x.menu} href ="/">ADD PAPERS</Link>
+          <Link class ={x.menu} href ='#'>ADD USER</Link>
+          <Link class ={x.menu} href ="#">STAT</Link>
+        </div>
+        <div className={x.logins}>
+        <Link href="/Home">
+            <button className={x.btn}>
+              LOGOUT
+            </button></Link>
+         
+        </div>
+    </div>
+    </nav>
+  );
+}
+
