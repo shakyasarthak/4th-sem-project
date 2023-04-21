@@ -1,6 +1,6 @@
 function Home () {
     return <>
-    <div>THIS IS TEST</div>
+    <div>THIS IS ADMIN DASHBOARD</div>
     
     </>
 }
