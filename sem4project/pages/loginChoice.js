@@ -8,7 +8,7 @@ const Login_choice = () => {
         <div>
             <h1>Choose your login</h1>
             <button onClick={() => {signIn('google', {callbackUrl: '/studentDashboard'})}}>Student</button>
-            <button>Admin</button>
+            <button onClick='/adminDashboard'>Admin</button>
             <button onClick={() => {signIn('google', {callbackUrl: '/TeacherDashboard'})}}>Teacher</button>
         </div>
     )
