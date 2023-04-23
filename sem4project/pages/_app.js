@@ -5,8 +5,6 @@ import Layout from './layout/Layout';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 
-
-
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function App({ Component, pageProps, session }) {
@@ -19,11 +17,11 @@ export default function App({ Component, pageProps, session }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
-      <sessionProvider session={session}>
+      <SessionProvider session={session}>
         <Layout >
           <Component {...pageProps} />
         </Layout>
-      </sessionProvider>
+      </SessionProvider>
     </>
   )
 }

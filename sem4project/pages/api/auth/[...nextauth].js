@@ -19,7 +19,7 @@ export default NextAuth({
 secret: process.env.JWT_SECRET,
 callbacks: {
   async signIn({user, account, profile}) {
-      if (profile.email.endsWith("@ku.edu.np")) {
+      if (profile.email.endsWith("@gmail.com")) {
           return Promise.resolve(true);
       } if (profile.email.endsWith("@student.ku.edu.np")) {
           return Promise.resolve(true);

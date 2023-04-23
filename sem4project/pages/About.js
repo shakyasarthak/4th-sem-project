@@ -4,7 +4,7 @@ import x from '/styles/About.module.css';
 import Image from 'next/image';
 
 const AboutUs = () => (
-  <Layout navbarType={1}>
+ 
   
   <div className={x.Container}>
   
@@ -24,7 +24,7 @@ const AboutUs = () => (
   </div>
 
 </div>
-</Layout>
+
 
   
  

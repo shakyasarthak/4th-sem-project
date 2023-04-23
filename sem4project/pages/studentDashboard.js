@@ -131,7 +131,7 @@
 // export default StudentDashboard;
   
 function Home () {
-  return <></>
+  return <>Dashboard</>
 }
 
 export default Home
