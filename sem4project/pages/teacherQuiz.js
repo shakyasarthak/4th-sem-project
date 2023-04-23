@@ -1,98 +1,54 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 
-// function Quiz(classes) {
-//   const [quizLink, setQuizLink] = useState("");
-//   const [dueDate, setDueDate] = useState("");
+function Quiz({classCode, onCreateQuiz}) {
+  const [title, setTitle] = useState("");
+  const [quizLink, setQuizLink] = useState("");
+  // const [dueDate, setDueDate] = useState("");
 
-//   const handleLinkChange = (event) => {
-//     setQuizLink(event.target.value);
-//   };
+  const handleTitleChange = (event) => {
+    event.preventDefault();
+    setTitle(event.target.value);
+  };
 
-//   const handleDateChange = (event) => {
-//     setDueDate(event.target.value);
-//   };
+  const handleLinkChange = (event) => {
+    setQuizLink(event.target.value);
+  };
 
-//   const handleSave = () => {
-//     // Create a new quiz object with the quiz link and due date
-//     const newQuiz = {
-//       quizLink: quizLink,
-//       dueDate: dueDate
-//     };
+  // const handleDuedateChange = (event) => {
+  //   setDueDate(event.target.value);
+  // };
 
-//     // Pass the new quiz data to the parent component
-//     props.onSave(newQuiz);
-
-//     // Clear the input fields
-//     setQuizLink("");
-//     setDueDate("");
-//   };
-
-//   return (
-//     <div>
-//       <h2>Add a quiz</h2>
-//       <form>
-//         <label htmlFor="quizLink">Quiz link:</label>
-//         <input type="text" id="quizLink" value={quizLink} onChange={handleLinkChange} />
-//         <br />
-//         <label htmlFor="dueDate">Due date:</label>
-//         <input type="datetime-local" id="dueDate" value={dueDate} onChange={handleDateChange} />
-//         <br />
-//         <button type="button" onClick={handleSave}>
-//           Save
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Quiz;
-import React, { useState } from 'react';
-
-const Quizs = ({ classCode }) => {
-  const [quizzes, setQuizzes] = useState([]);
-
-  const handleAddQuiz = (quizLink, deadline) => {
-    // Add the new quiz to the quizzes array
-    setQuizzes([...quizzes, { quizLink, deadline }]);
+  const handleSave = () => {
+    // Create a new quiz object with the quiz link and due date
+    
+    onCreateQuiz(title,quizLink,classCode);
+    // Clear the input fields
+    setTitle("");
+    setQuizLink("");
+    // setDueDate("");
   };
 
   return (
     <div>
-      <h3>Quizzes</h3>
-      <ul>
-        {/* Display the list of quizzes */}
-        {quizzes.map((quiz, index) => (
-          <li key={index}>
-            <a href={quiz.quizLink} target="_blank" rel="noreferrer">
-              Quiz {index + 1}
-            </a>
-            {' - '}
-            Deadline: {quiz.deadline.toLocaleString()}
-          </li>
-        ))}
-      </ul>
-      {/* Form to add a new quiz */}
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          const quizLink = event.target.elements.quizLink.value;
-          const deadline = new Date(event.target.elements.deadline.value);
-          handleAddQuiz(quizLink, deadline);
-          event.target.reset();
-        }}
-      >
+      <h2>Add a quiz</h2>
+      <form>
         <label>
-          New Quiz Link:
-          <input type="url" name="quizLink" required />
+          Title:
+          <input type="text" name="title" required id="className" value={title} onChange={handleTitleChange}/>
         </label>
-        <label>
-          Deadline:
-          <input type="datetime-local" name="deadline" required />
+        <label >Quiz link:
+        <input type="url" name="quizLink" required  id="quizLink" value={quizLink} onChange={handleLinkChange}/>
         </label>
-        <button type="submit">Add</button>
+        {/* <br />
+        <label htmlFor="dueDate">Due date:</label>
+        <input type="datetime-local" id="dueDate" value={dueDate} onChange={handleDuedateChange} />
+        <br /> */}
+        <button type="button" onClick={handleSave}>
+          Save
+        </button>
       </form>
     </div>
   );
-};
+}
 
-export default Quizs;
+export default Quiz;
