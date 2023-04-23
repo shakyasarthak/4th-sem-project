@@ -4,6 +4,7 @@ import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
 const Navbar =() => {
   return (
     <nav>

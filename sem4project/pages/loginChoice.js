@@ -1,18 +1,23 @@
-import Link from "next/link"
-import Layout from './layout/Layout';
 
 
+import React from "react";
+import { useSession, signIn } from "next-auth/react";
 
-const Login_choice = () => (
-    
-    <>  
-    <Layout navbarType={1}> 
-    <Link href='/teacherLogin'><button id="teacher-btn">Login as Teacher</button></Link>
-    <Link href ='/studentLogin'><button id="student-btn">Login as Student</button></Link>
-    <Link href ='/adminLogin'><button id="admin-btn">Login as Admin</button></Link>    
-    </Layout> 
-    </>
+const Login_choice = () => {
+    return(
+        <div>
+            <h1>Choose your login</h1>
+            <button onClick={() => {signIn('google')}}>Student</button>
+            <button>Admin</button>
+            <button onClick={() => {signIn('google')}}>Teacher</button>
+        </div>
+    )
+}
 
-)
 
 export default Login_choice
+// function Home () {
+//     return <></>
+// }
+  
+// export default Home

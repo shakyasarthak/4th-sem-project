@@ -5,23 +5,25 @@ import Layout from './layout/Layout';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 
+
+
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function App({ Component, pageProps, session }) {
-  useEffect(() => {
-    typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null
-  }, [])
+  // useEffect(() => {
+  //   typeof document !== undefined ? require('bootstrap/dist/js/bootstrap') : null
+  // }, [])
   return (
     <>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
-      <SessionProvider session={session}>
+      <sessionProvider session={session}>
         <Layout >
           <Component {...pageProps} />
         </Layout>
-      </SessionProvider>
+      </sessionProvider>
     </>
   )
 }

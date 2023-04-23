@@ -1,43 +1,31 @@
-import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
-
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-
-import clientPromise from "@/lib/dbConnect";
+import NextAuth from 'next-auth'
+import GoogleProvider from "next-auth/providers/google";
+import { signIn } from 'next-auth/react';
+import Google from 'next-auth/providers/google';
+import GoogleProfile from 'next-auth/providers/google';
 
 
 
 export default NextAuth({
-    providers: [
-        CredentialsProvider({
-            name: 'Credentials',
-            credentials: {
-              username: {
-                label: 'Username',
-                type: 'text',
-                placeholder: 'username'
-              },
-              password: { label: 'Password', type: 'password' }
-            },
-            async authorize(credentials, req) {
-              const { email, password } = credentials
-              const user = await loginUser(email, password)
-       
-              if (user) {
-                return user
-              } else {
-                return null
-              }
-            }
-        })
-    ]
-})
 
-async function loginUser(email, password){
-    const client = await clientPromise
-    const db = client.db("logins")
-    const student = db.collection("student")
-    const result = await student
-        .find({'Email': email, 'Password': password})
-    return result
-}
+  providers: [
+    GoogleProvider({
+        clientId: process.env.GOOGLE_ID,
+        clientSecret: process.env.GOOGLE_SECRET,
+    }),
+
+    
+],
+secret: process.env.JWT_SECRET,
+callbacks: {
+  async signIn({user, account, profile}) {
+      if (profile.email.endsWith("@ku.edu.np")) {
+          return Promise.resolve(true);
+      } if (profile.email.endsWith("@student.ku.edu.np")) {
+          return Promise.resolve(true);
+      } else {
+          return '/loginChoice';
+      }            
+  }
+  },
+})

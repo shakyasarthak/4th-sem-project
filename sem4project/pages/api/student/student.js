@@ -42,8 +42,7 @@ const handler = async (req, res) => {
         if(!student) await init()
         const result = await student
             .find({
-                'Email': 'bibek.poudel@student.ku.edu.np',
-                'Password': 'asdas#7yhnM'
+                
             })
             .toArray()
         return res.status(200).json({student: result})
