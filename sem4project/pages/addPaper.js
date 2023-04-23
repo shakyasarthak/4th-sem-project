@@ -1,5 +1,9 @@
-function Home () {
-    return <></>
+import React from 'react'
+
+const addPaper = () => {
+  return (
+    <div>addPaper</div>
+  )
 }
-  
-export default Home
+
+export default addPaper

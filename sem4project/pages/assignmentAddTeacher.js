@@ -1,5 +1,9 @@
-function Home () {
-    return <></>
+import React from 'react'
+
+const assignmentAddTeacher = () => {
+  return (
+    <div>assignmentAddTeacher</div>
+  )
 }
-  
-export default Home
+
+export default assignmentAddTeacher

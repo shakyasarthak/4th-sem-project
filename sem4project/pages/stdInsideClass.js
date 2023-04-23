@@ -1,5 +1,9 @@
-function Home () {
-    return <></>
+import React from 'react'
+
+const stdInsideClass = () => {
+  return (
+    <div>stdInsideClass</div>
+  )
 }
-  
-export default Home
+
+export default stdInsideClass
