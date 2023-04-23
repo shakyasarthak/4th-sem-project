@@ -1,25 +1,51 @@
-
 import React, { useState } from 'react';
 
-const Assignment = ({ classCode }) => {
-  const [assignments, setAssignments] = useState([]);
+const Assignment = ({ classCode ,onCreateAssignment}) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  // const [file, setFile] = useState("");
+  const [deadline, setDeadline] = useState("");
+ 
 
-  const handleAddAssignment = (event) => {
+  const handleTitleChange = (event) => {
     event.preventDefault();
-    const title = event.target.elements.title.value;
-    const file = event.target.elements.file.files[0];
-    const deadline = event.target.elements.deadline.value;
-    const newAssignment = { title, file, deadline, classCode };
-    setAssignments([...assignments, newAssignment]);
-    event.target.reset();
+    setTitle(event.target.value);
   };
+  
+  const handleDescriptionChange = (event) => {
+    event.preventDefault();
+    setDescription(event.target.value);
+  };
+  // const handleFileChange = (event) => {
+  //   event.preventDefault();
+  //   setFile(event.target.files[0]);
+  // };
+
+  const handleDeadlineChange = (event) => {
+    event.preventDefault();
+    setDeadline(event.target.value);
+  };
+
+
+
+  const handleAddAssignment= () => {
+    
+    // Pass the new class data to the parent component
+    onCreateAssignment(title,description,deadline,classCode);
+    
+    // Clear the input fields
+    setTitle("");
+    setDescription("");
+    setDeadline("");
+    
+  };
+  
 
   return (
     <div>
       <h3>Assignments</h3>
       <ul>
-        {/* Display the list of assignments */}
-        {assignments
+        {/* {assignments
           .filter((assignment) => assignment.classCode === classCode)
           .map((assignment, index) => (
             <li key={index}>
@@ -31,23 +57,23 @@ const Assignment = ({ classCode }) => {
                 <span>Deadline: {assignment.deadline}</span>
               )}
             </li>
-          ))}
+          ))} */}
       </ul>
       {/* Form to add a new assignment */}
-      <form onSubmit={handleAddAssignment}>
+      <form >
         <label>
           Title:
-          <input type="text" name="title" required />
+          <input type="text" name="title" required id="title" value={title} onChange={handleTitleChange}/>
         </label>
         <label>
-          File:
-          <input type="file" name="file" required />
+          Description:
+          <input type="text" name="descriptiom" required id="description" value={description} onChange={handleDescriptionChange}/>
         </label>
         <label>
           Deadline:
-          <input type="datetime-local" name="deadline" />
+          <input type="datetime-local" name="deadline"id="deadline" value={deadline} onChange={handleDeadlineChange} />
         </label>
-        <button type="submit">Add</button>
+        <button type="button" onClick={handleAddAssignment}>Add</button>
       </form>
     </div>
   );

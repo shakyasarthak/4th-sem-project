@@ -1,56 +1,120 @@
-// import React from "react";
-// import ClassList from "./ClassList";
-
-// function TeacherDashboard() {
-//   return (
-//     <div>
-//       {/* <h2>Teacher Dashboard</h2>
-//       <nav>
-//         <ul>
-//           <li>
-//             <a href="#">Create New Class</a>
-//           </li>
-//           <li>
-//             <a href="#">Add Assignment</a>
-//           </li>
-//           <li>
-//             <a href="#">Add Quiz</a>
-//           </li>
-//         </ul>
-//       </nav>
-//       <hr /> */}
-//       <ClassList />
-//     </div>
-//   );
-// }
-
-// export default TeacherDashboard;
 import React, { useState } from "react";
-import Assignment from './studentAssignmnet';
-import Quiz from './studentQuiz';
-import CreateClass from './teacherCreateClass';
-
-
-
+import CreateClass from "./teacherCreateClass";
+import Assignment from "./teacherAssignment";
+import Quiz from "./teacherQuiz"
+import { nanoid } from 'nanoid';
 
 function TeacherDashboards() {
-  const [classes, setClasses] = useState([]);
+  const [classes, setClasses] = useState([
+    {
+			id: nanoid(),
+			className: 'Cs Batch 2020 MCSC 207' ,
+      subject: 'Numerical Methods ',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing el vehicula erra maximus.',
+      classCode: 'nxfirhjdj45',
+		},
+    {
+			id: nanoid(),
+			className: 'Cs Batch 2021 MATH 207' ,
+      subject: 'Statistics ',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing el vehicula erra maximus.',
+      classCode: 'hhgdjnh45',
+		},
+  ]);
+   const [assignments,setAssignments] = useState([
+    
+    {
+      id:nanoid(),
+      title: "Assignment 3",
+       description :"lorem oremh  dygbeyd gdyeg",
+      deadline: "2023-05-15T23:59",
+      classCode:"t24tbirc"
+    },
+    {
+      id:nanoid(),
+      title: "Assignment 1",
+      description:"loerrk dhge ugr hdfguf uerh",
+      // file: "https://example.com/assignment1.docx",
+      deadline: "2023-05-03T23:59",
+      classCode: "hhgdjnh45",
+    },
+    ]);
+   const [quizs,setQuiz]=useState([
+    {
+      id:nanoid(),
+      title: "Math Quiz",
+      // duedate: "2023-05-01T23:59:59.999Z",
+      quizLink: "https://example.com/math-quiz",
+      classCode:"hhgdjnh45"
+    },
+    {
+      id:nanoid(),
+      title: "History Quiz",
+      // duedate: "2023-05-15T23:59:59.999Z",
+      quizLink: "https://example.com/history-quiz",
+      classCode:"hhgdjnh45"
+    },
+    {
+      id:nanoid(),
+      title: "Science Quiz",
+      // duedate: "2023-05-30T23:59:59.999Z",
+      quizLink: "https://example.com/science-quiz",
+      classCode:"nxfirhjdj45"
+    },
+   ]);
 
-  const handleCreateClass = (newClass) => {
-    setClasses([...classes, newClass]);
-  };
+  const createClass = (className,subject,description,classCode) => {
+    
+    	const newClass = {
+    		id: nanoid(),
+    		className : className,
+         subject : subject,
+         description: description,
+         classCode: classCode 
+        };
+        const newClasses =[...classes,newClass]
+      setClasses(newClasses)
+    };
 
   const handleDeleteClass = (classCodeToDelete) => {
     setClasses(classes.filter((classItem) => classItem.classCode !== classCodeToDelete));
   };
-
-  const [selectedClass, setSelectedClass] = useState(null);
-
-  const handleSelectClass = (classCode) => {
-    setSelectedClass(classes.find((classItem) => classItem.classCode === classCode));
+  const createAssignment= (title,description,date,classCode) => {
     
+    const newAssignment = {
+      id:nanoid(),
+      title: title,
+      description:description,
+      // file:file,
+      date: date,
+      classCode:classCode
+      };
+      const newAssignments =[...assignments,newAssignment]
+    setAssignments(newAssignments)
+  };
+  const createQuiz= (title,quizlink,classCode) => {
+    
+    const newQuiz= {
+      id:nanoid(),
+      title: title,
+      // duedate:duedate,
+      // file:file,
+      quizlink:quizlink,
+      classCode:classCode
+      };
+      const newQuizs =[...quizs,newQuiz]
+    setQuiz(newQuizs)
   };
 
+  const [selectedClass, setSelectedClass] = useState(null);
+  // const [selectedAssignment, setSelectedAssignment] = useState(null);
+  const handleSelectClass = (classCode) => {
+    const selected = classes.find((classItem) => classItem.classCode === classCode);
+    const selectedAssignments = assignments.filter((assignment) => assignment.classCode === classCode);
+    const selectedQuizs = quizs.filter((quiz) => quiz.classCode === classCode);
+    setSelectedClass({...selected, assignments: selectedAssignments, quizs:selectedQuizs});
+  };
+  // setSelectedAssignment(assignments.find((assignmentItem) => assignmentItem.classCode===classCode));
   return (
     <div>
       <h2>Teacher Dashboard - Class List</h2>
@@ -69,7 +133,8 @@ function TeacherDashboards() {
         </ul>
       </nav>
       <hr />
-      {selectedClass === "create" && <CreateClass onCreateClass={handleCreateClass} />}
+     
+      {selectedClass === "create" && <CreateClass onCreateClass={createClass} />}
       {selectedClass && selectedClass !== "create" && (
         <div>
           <h3>{selectedClass.className}</h3>
@@ -85,10 +150,35 @@ function TeacherDashboards() {
             <strong>Class Code: </strong>
             {selectedClass.classCode}
           </p>
-          <button onClick={() => handleDeleteClass(selectedClass.classCode)}>Delete Class</button>
-          <Assignment classCode={selectedClass.classCode}/>
-            <Quiz classCode={selectedClass.classCode}/>
-          {/* <hr />
+          <ul>
+            <h4>Assignments</h4>
+            {selectedClass.assignments.map((assignment) => (
+              <li key={assignment.id}>
+                {assignment.title}
+               {assignment.description}
+               {/* {assignment.deadline && (
+                <span>Deadline: {assignment.deadline}</span>
+              )} */}
+              </li>
+            ))}
+          
+          </ul>
+          <ul>
+          <h4>Quizs</h4>
+          <li>
+              {selectedClass.quizs.map((quiz) => (
+              <li key={quiz.id}>
+               
+                {/* <a href={quiz.quizLink} target="_blank" rel="noreferrer">
+                  Quiz 
+                </a>
+               {' - '}
+                Deadline: {quiz.duedate.toLocaleString()} */}
+                <a href="quiz.quizlink"> {quiz.title}</a>
+              </li>
+            ))}
+            </li>
+            </ul>
           <nav>
             <ul>
               <li>
@@ -104,10 +194,15 @@ function TeacherDashboards() {
             </ul>
           </nav>
           <hr />
-          {selectedClass.action === "assignment" && <Assignment classCode={selectedClass.classCode} />}
-          {selectedClass.action === "quiz" && <Quiz classCode={selectedClass.classCode} />} */}
+          
+          <button onClick={() => handleDeleteClass(selectedClass.classCode)}>Delete Class</button>
+          
+       
+          {selectedClass.action === "assignment" && <Assignment classCode={selectedClass.classCode} onCreateAssignment={createAssignment} />}
+          {selectedClass.action === "quiz" && <Quiz classCode={selectedClass.classCode} onCreateQuiz={createQuiz}/>}
         </div>
       )}
+    
       {!selectedClass && (
         <div>
           <h3>My Classes</h3>
@@ -124,17 +219,18 @@ function TeacherDashboards() {
                   {classItem.description}
                 </p>
                 <p>
-                  <strong>Class Code: </strong>
+                  <strong>ClassCode: </strong>
                   {classItem.classCode}
                 </p>
                 <button onClick={() => handleSelectClass(classItem.classCode)}>View Details</button>
               </li>
             ))}
           </ul>
+          <ul>
+          </ul>
         </div>
       )}
     </div>
   );
 }
-
 export default TeacherDashboards;
