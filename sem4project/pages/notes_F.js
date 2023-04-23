@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Search from './Note_search';
 import NotesList from './notesList';
-
-
+import styled from 'styled-components';
+import { GlobalStyle } from './Wrap';
 
 const Notes_F = () => {
-	const [notes, setNotes] = useState([
+
+	const [notes, setNotes] = useState ([
 		{
 			id: nanoid(),
 			text: 'This is my first note!',
@@ -47,7 +48,9 @@ const Notes_F = () => {
     
   return (
     <>
+	<GlobalStyle/>
    <div className="container">
+	<h1 className='header'>Notes Collection</h1>
    <Search handleSearchNote={setSearchText} />
     <NotesList 
     notes={notes.filter((note) =>
