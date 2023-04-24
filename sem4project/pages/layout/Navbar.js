@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
 import { useState } from 'react';
 import {SessionProvider} from 'next-auth/react';
-
+import Image from 'next/image';
+import logo from '/public/logo.svg';
 
 
 const Navbar =() => {
@@ -21,7 +22,7 @@ const Navbar =() => {
 
       <div className={x.nav_bar_wrapper}>
         <div className={x.logo}>
-        this is logo
+        <Image src={logo} alt="" width='100' />
         </div>
         <div className={x.nav_bar}>
           {status ==  "unauthenticated" && <Link class ={x.menu} href ="/">HOME</Link>}
@@ -53,7 +54,7 @@ export const NavbarUser =() => {
     <nav>
       <div className={x.nav_bar_wrapper}>
         <div className={x.logo}>
-        this is logo
+        <Image src={logo} alt="" width='100' />
         </div>
         <div className={x.nav_bar}>
           <Link class ={x.menu} href ="/">HOME</Link>
@@ -77,7 +78,7 @@ export const NavbarAdmin =() => {
     <nav>
       <div className={x.nav_bar_wrapper}>
         <div className={x.logo}>
-        this is logo
+        <Image src={logo} alt="" width='100' />
         </div>
         <div className={x.nav_bar}>
           <Link class ={x.menu} href ="/">ADD PAPERS</Link>

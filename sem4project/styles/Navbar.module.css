@@ -29,6 +29,16 @@
     cursor: pointer;
   }
   
+ .logo {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 1px;
+    height: 1px;
+    margin-left: 5px;
+    padding: 0;
+  }
+   
   .menu::after {
     content: "";
     position: absolute;
@@ -77,51 +87,61 @@
   
   @media (max-width: 1215px) {
     .nav_bar_wrapper {
-      height: auto; 
+      height: 50px; 
       flex-direction: column; 
     }
   
     .nav_bar a {
+
+
     font-size: 16px;
     padding: 8px 16px;
     width: auto;
     height: auto;
-    top: auto;
-    left: auto;
+    top: 30%;
+    left: 45%;
     margin: 0;
     }
   
     .logins button {
-      padding: 1px 15px  ;
-      font-size: 16px;
-      border-radius: 10px; 
+      padding: 1px 11px  ;
+      font-size: 13px;
+      border-radius: 5px; 
       height: fit-content;
       width: fit-content;
+      margin: 0;
+      cursor: pointer;
+      transition: all 0.25s ease-out;
     }
   }
   
   @media (max-width: 768px) {
     .nav_bar_wrapper {
-      height: auto; 
+      height: 50px; 
       flex-direction: column; 
     }
   
     .nav_bar a {
-    font-size: 14px;
+   
+    font-size: 16px;
     padding: 8px 16px;
     width: auto;
     height: auto;
-    top: auto;
-    left: auto;
+    top: 20%;
+    left: 35%;
+   
     margin: 0;
     }
   
     .logins button {
-      padding: 1px 13px  ;
-      font-size: 14px;
-      border-radius: 10px; 
-      height: auto;
+      padding: 1px 11px  ;
+      font-size: 13px;
+      border-radius: 5px; 
+      height: fit-content;
+      width: fit-content;
       margin: 0;
+      cursor: pointer;
+      transition: all 0.25s ease-out;
      
     }
   }

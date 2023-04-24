@@ -1,23 +1,23 @@
 import Image from 'next/image';
 import person_image from '/public/person.png';
 import Layout from './layout/Layout';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import y from '/styles/Contact.module.css';
 
 function Contact() {
     return (
-      <>    
-
-<div class="container py-5">
-    <div class="row text-center">
-        <div class="col-lg-8 mx-auto">
+      <>
+<div>
+    <div class="container py-5">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
             <h1 class="display-4">Know the Team</h1>
         </div>
     </div>
 </div> 
 
 
-<div class="container">
+<div class="container" className={y.content}>
     <div class="row text-center">
     <div class="col-xl-3 col-sm-6 mb-5">
         <div class="bg-white rounded shadow-sm py-5 px-4"><Image src={person_image} alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
@@ -59,7 +59,7 @@ function Contact() {
         </div>
     </div>
 </div>
-
+</div>
       </>  
     );
   }
