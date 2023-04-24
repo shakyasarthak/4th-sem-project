@@ -1,10 +1,14 @@
 import AddNote from "./addNote";
 import Note from './note';
-
-
+import styled from "styled-components";
+import { GlobalStyle } from "./Wrap";
 
 const NotesList = ({notes,handleAddNote,handleDeleteNote}) => {
+
+  
    return(
+    <>
+    <GlobalStyle/>
     <div className="notes-list">
       <AddNote handleAddNote={handleAddNote}/>
         {notes?.map((note)=>(
@@ -17,6 +21,7 @@ const NotesList = ({notes,handleAddNote,handleDeleteNote}) => {
           />))} 
             
     </div>
+    </>
    )
 }
 export default NotesList;

@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import styled from 'styled-components';
+import { GlobalStyle } from './Wrap';
 
 const AddNote = ({ handleAddNote }) => {
+
+
 	const [noteText, setNoteText] = useState('');
 	const characterLimit = 200;
 
@@ -18,6 +22,8 @@ const AddNote = ({ handleAddNote }) => {
 	};
 
 	return (
+		<>
+		<GlobalStyle/>
 		<div className='note new'>
 			<textarea
 				rows='8'
@@ -35,6 +41,7 @@ const AddNote = ({ handleAddNote }) => {
 				</button>
 			</div>
 		</div>
+		</>
 	);
 };
 
