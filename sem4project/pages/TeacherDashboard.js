@@ -164,7 +164,7 @@ function TeacherDashboards() {
           
           </ul>
           <ul>
-          <h4>Quizs</h4>
+          <h4>Quizzes</h4>
           <li>
               {selectedClass.quizs.map((quiz) => (
               <li key={quiz.id}>
