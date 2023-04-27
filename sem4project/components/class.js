@@ -1,7 +1,7 @@
 
 import { nanoid } from 'nanoid';
 
-const classes= [
+let classes= [
     {
         id: nanoid(),
         className: 'Cs Batch 2020 MCSC 207' ,
@@ -20,11 +20,11 @@ const classes= [
 
 
 function addClasses(newClasses) {
-    const classCode = Math.random().toString(36).substr(2, 8);
+    // const classCode = Math.random().toString(36).substr(2, 8);
   const newClassesWithId = {
     ...newClasses,
     id: nanoid(),
-    classCode:classCode,
+    // classCode:classCode,
     
   };
   classes = [...classes, newClassesWithId];
@@ -35,7 +35,7 @@ function addClasses(newClasses) {
 //     ...newClasses,
 //     id,
 //   };
-//   classess = classess.map((d) => (d.id === id ? newClassesWithId : d));
+//   classes = classes.map((d) => (d.id === id ? newClassesWithId : d));
 // }
 
-export { classes, addClasses, updateClasses };
+export { classes, addClasses };

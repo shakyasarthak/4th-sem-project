@@ -53,7 +53,7 @@ function addpastPapers(newpastPapers) {
 //     ...newpastPapers,
 //     id,
 //   };
-//   pastpaper = pastpaper.map((d) => (d.id === id ? newpastPapersWithId : d));
+//   pastpapers = pastpapers.map((d) => (d.id === id ? newpastPapersWithId : d));
 // }
 
-export { pastpapers, addpastPapers, updatepastPapers };
+export { pastpapers, addpastPapers };

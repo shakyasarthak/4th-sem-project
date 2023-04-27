@@ -1,7 +1,7 @@
 
 import { nanoid } from 'nanoid';
 
-const assignments= [
+let assignments= [
     {
         id: nanoid(),
         classCode: 'CS101',
@@ -40,12 +40,12 @@ function addAssignments(newAssignments) {
   assignments = [...assignments, newAssignmentsWithId];
 }
 
-// function updateAssignments(id, newAssignments) {
-//   const newAssignmentsWithId = {
-//     ...newAssignments,
-//     id,
-//   };
-//   assignments = assignments.map((d) => (d.id === id ? newAssignmentsWithId : d));
-// }
+function updateAssignments(id, newAssignments) {
+  const newAssignmentsWithId = {
+    ...newAssignments,
+    id,
+  };
+  assignments = assignments.map((d) => (d.id === id ? newAssignmentsWithId : d));
+}
 
 export { assignments, addAssignments, updateAssignments };
