@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { assignments } from '../components/assignment'
+import { quizs } from '../components/quiz'
 import React from 'react';
 import { GlobalStyle } from '@/lib/Wrap';
-import ViewAllPapers from './viewallAssignment';
+import ViewAllPapers from './viewallQuiz';
 
-const AddAssignmentForm = (classCode) => {
-  const [formAssignment, setFormAssignment] = useState(assignments);
+const AddQuizForm = (classCode) => {
+  const [formQuiz, setFormQuiz] = useState(quizs);
 
   function handleInputChange1(event) {
-    setFormAssignment({
-      ...formAssignment,
+    setFormQuiz({
+      ...formQuiz,
       [event.target.name]: event.target.value
     });
   }
@@ -18,13 +18,13 @@ const AddAssignmentForm = (classCode) => {
   function handleSubmit1(event) {
     event.preventDefault();
    
-    const newAssignment = {
+    const newQuiz = {
       id: nanoid(),
       classCode:classCode,
-      ...formAssignment
+      ...formQuiz
     };
-    assignments.push(newAssignment);
-    setFormAssignment({
+    quizs.push(newQuiz);
+    setFormQuiz({
       classCode : '',
       subjectName: '',
       subjectCode : '',
@@ -39,7 +39,7 @@ const AddAssignmentForm = (classCode) => {
     <>
     <GlobalStyle/>
     <section className='quiz quiz-small'>
-      <h1> Pastpaper </h1>
+      <h1> Quiz</h1>
       <div className="button-container">
           <div className="form-container">
     <form onSubmit={handleSubmit1}>
@@ -48,7 +48,7 @@ const AddAssignmentForm = (classCode) => {
         <input
           type="text"
           id="classCode"
-          value={formAssignment.classCode}
+          value={formQuiz.classCode}
           onChange={handleInputChange1}
         />
       </div>
@@ -57,7 +57,7 @@ const AddAssignmentForm = (classCode) => {
         <input
           type="text"
           id="subjectName"
-          value={formAssignment.subjectName}
+          value={formQuiz.subjectName}
           onChange={handleInputChange1}
         />
       </div>
@@ -66,7 +66,7 @@ const AddAssignmentForm = (classCode) => {
         <input
           type="text"
           id="subjectCode"
-          value={formAssignment.subjectCode}
+          value={formQuiz.subjectCode}
           onChange={handleInputChange1}
         />
       </div>
@@ -75,7 +75,7 @@ const AddAssignmentForm = (classCode) => {
         <input
           type="text"
           id="link"
-          value={formAssignment.link}
+          value={formQuiz.link}
           onChange={handleInputChange1}
         />
       </div>
@@ -84,7 +84,7 @@ const AddAssignmentForm = (classCode) => {
         <input
           type="date"
           id="deadline"
-          value={formAssignment.deadline}
+          value={formQuiz.deadline}
           onChange={handleInputChange1}
         />
       </div>
@@ -92,11 +92,11 @@ const AddAssignmentForm = (classCode) => {
         <label htmlFor="description">Description:</label>
         <textarea
           id="description"
-          value={formAssignment.description}
+          value={formQuiz.description}
           onChange={handleInputChange1}
         />
       </div>
-      <button type="submit">Add Assignment</button>
+      <button type="submit">Add Quiz</button>
     </form>
           </div>
       </div>
@@ -108,4 +108,4 @@ const AddAssignmentForm = (classCode) => {
   );
 };
 
-export default AddAssignmentForm;
+export default AddQuizForm;

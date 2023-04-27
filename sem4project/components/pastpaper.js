@@ -45,15 +45,15 @@ function addpastPapers(newpastPapers) {
     id: nanoid(),
     
   };
-  pastpaper = [...pastpaper, newpastPapersWithId];
+  pastpapers = [...pastpapers, newpastPapersWithId];
 }
 
-function updatepastPapers(id, newpastPapers) {
-  const newpastPapersWithId = {
-    ...newpastPapers,
-    id,
-  };
-  pastpaper = pastpaper.map((d) => (d.id === id ? newpastPapersWithId : d));
-}
+// function updatepastPapers(id, newpastPapers) {
+//   const newpastPapersWithId = {
+//     ...newpastPapers,
+//     id,
+//   };
+//   pastpaper = pastpaper.map((d) => (d.id === id ? newpastPapersWithId : d));
+// }
 
 export { pastpapers, addpastPapers, updatepastPapers };

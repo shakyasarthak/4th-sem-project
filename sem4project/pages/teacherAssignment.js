@@ -44,7 +44,7 @@ const Assignment = ({ classCode ,onCreateAssignment}) => {
   return (
     <div>
       <h3>Assignments</h3>
-      <ul>
+      {/* <ul>
         {/* {assignments
           .filter((assignment) => assignment.classCode === classCode)
           .map((assignment, index) => (
@@ -57,8 +57,8 @@ const Assignment = ({ classCode ,onCreateAssignment}) => {
                 <span>Deadline: {assignment.deadline}</span>
               )}
             </li>
-          ))} */}
-      </ul>
+          ))} 
+      </ul> */}
       {/* Form to add a new assignment */}
       <form >
         <label>
