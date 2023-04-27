@@ -37,34 +37,40 @@ const AddpastPaperForm = () => {
   return (
     <>
     <GlobalStyle/>
-    <div className="container">
-      <h1> All Classes </h1>
+    <section className='quiz quiz-small'>
+      <h1> Pastpaper </h1>
       <div className="button-container">
-        <button className="add-button" onClick={() => setShowForm(true)}>Add Class</button>
+        <button className="add-button" onClick={() => setShowForm(true)}>Add Pastpaper</button>
         {showForm && (
           <div className="form-container">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='setup-form'>
+              <div className='form-control'>
               <label>
                  Subject:
-                <input type="text" name="subjectName" value={formpastPaper.subjectName} onChange={handleInputChange} />
-              </label>
+                <input type="text" name="subjectName" value={formpastPaper.subjectName} onChange={handleInputChange}  />
+              </label></div>
+              <div className='form-control'>
               <label>
                 Semester:
-                <input type="text" name="semester" value={formpastPaper.semester} onChange={handleInputChange} />
-              </label>
+                <input type="text" name="semester" value={formpastPaper.semester} onChange={handleInputChange}  />
+              </label></div>
+              <div className='form-control'>
               <label>
                 Year :
                 <input type="text" name="year" value={formpastPaper.year} onChange={handleInputChange} />
-              </label>
+              </label></div>
+              <div className='form-control'>
               <label>
                  Link :
                 <input type="url" name="link" value={formpastPaper.link} onChange={handleInputChange} />
-              </label>
-              <button type="submit">Add Class</button>
+              </label></div>
+              <button type="submit" className='submit-btn'>Add </button>
             </form>
           </div>
         )}
       </div>
+      </section>
+    <div className="container">
        <ViewAllPapers/>
     </div>
     </>
