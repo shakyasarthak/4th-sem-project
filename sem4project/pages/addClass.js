@@ -1,50 +1,69 @@
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { classes } from '../components/class'
+import React from 'react';
+import { GlobalStyle } from '@/lib/Wrap';
 
-const assignments= [
-    {
-        id: nanoid(),
-        classCode: 'CS101',
-        subjectName: 'Computer Science',
-        subjectCode: 'COMP101',
-        link: 'https://example.com/assignment1.pdf',
-        deadline: new Date('2023-05-01'),
-        description: 'Write a program in Python to implement a binary search algorithm.'
-      },
-      {
-        id: nanoid(),
-        classCode: 'PHYS202',
-        subjectName: 'Physics',
-        subjectCode: 'PHYS201',
-        link: 'https://example.com/assignment2.pdf',
-        deadline: new Date('2023-05-10'),
-        description: 'Derive the equations of motion for a particle in three dimensions using Lagrangian mechanics.'
-      },
-      {
-        id: nanoid(),
-        classCode: 'MATH201',
-        subjectName: 'Mathematics',
-        subjectCode: 'MATH101',
-        link: 'https://example.com/assignment3.pdf',
-        deadline: new Date('2023-05-15'),
-        description: 'Prove that the determinant of an orthogonal matrix is either 1 or -1.'
-      }
-];
 
-function addAssignments(newAssignments) {
-  const newAssignmentsWithId = {
-    ...newAssignments,
-    id: nanoid(),
+const AddAssignmentForm = (classCode) => {
+  const [formAssignment, setFormAssignment] = useState(assignments);
 
-  };
-  assignments = [...assignments, newAssignmentsWithId];
-}
+  function handleInputChange1(event) {
+    setFormAssignment({
+      ...formAssignment,
+      [event.target.name]: event.target.value
+    });
+  }
 
-// function updateAssignments(id, newAssignments) {
-//   const newAssignmentsWithId = {
-//     ...newAssignments,
-//     id,
-//   };
-//   assignments = assignments.map((d) => (d.id === id ? newAssignmentsWithId : d));
-// }
+  function handleSubmit1(event) {
+    event.preventDefault();
+   
+    const newAssignment = {
+      id: nanoid(),
+      classCode:classCode,
+      ...formAssignment
+    };
+    assignments.push(newAssignment);
+    setFormAssignment({
+      classCode : '',
+      subjectName: '',
+      subjectCode : '',
+      link: '',
+      deadline:'',
+      description:''
+    });
+    setShowForm(false);
+  }
 
-export { assignments, addAssignments, updateAssignments };
+  return (
+    <>
+    <GlobalStyle/>
+    <section className='quiz quiz-small'>
+      <h1> Pastpaper </h1>
+      <div className="button-container">
+          <div className="form-container">
+        <form>
+        <label htmlFor="className">Class name:</label>
+        <input type="text" id="className" value={className} onChange={handleClassNameChange} />
+        <br />
+        <label htmlFor="subject">Subject:</label>
+        <input type="text" id="subject" value={subject} onChange={handleSubjectChange} />
+        <br />
+        <label htmlFor="description">Description:</label>
+        <input type="text" id ="description" value={description} onChange={handleDescriptionChange}></input>
+        <br />
+        <button type="button" onClick={handleCreateClass}>
+          Create
+        </button>
+      </form>
+          </div>
+      </div>
+      </section>
+    {/* <div className="container">
+       <ViewAllPapers/>
+    </div> */}
+    </>
+  );
+};
+
+export default AddAssignmentForm;
