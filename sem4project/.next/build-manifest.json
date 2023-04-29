@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/addClass": [
+    "/addAssignment": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/addClass.js"
+      "static/chunks/pages/addAssignment.js"
     ]
   },
   "ampFirstPages": []
