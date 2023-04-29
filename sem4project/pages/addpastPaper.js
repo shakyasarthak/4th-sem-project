@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { pastpapers } from '../components/pastpaper'
 import React from 'react';
-import { GlobalStyle } from '@/lib/Wrap';
-import ViewAllPapers from './viewallpastPaper';
+import { GlobalStyle } from '@/components/Wrap';
+import ViewAllPapers from '../components/viewallpastPaper';
 
 const AddpastPaperForm = () => {
   const [formpastPaper, setFormpastPaper] = useState(pastpapers);

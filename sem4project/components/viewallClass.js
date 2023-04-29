@@ -1,7 +1,7 @@
 import React from 'react';
-import { classes } from '../components/class';
+import { classes } from './class';
 // import  {BsDownload} from "react-icons"
-import { GlobalStyle } from '@/lib/Wrap';
+import { GlobalStyle } from '@/components/Wrap';
 
 const ViewAllClass = () => {
   return (

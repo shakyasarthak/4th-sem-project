@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import Search from '../lib/Note_search';
-import NotesList from '../lib/notesList';
+import Search from '../components/Note_search';
+import NotesList from '../components/notesList';
 import styled from 'styled-components';
-import { GlobalStyle } from '../lib/Wrap';
+import { GlobalStyle } from '../components/Wrap';
 
 const Notes_F = () => {
 

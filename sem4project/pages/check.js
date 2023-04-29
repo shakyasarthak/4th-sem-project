@@ -1,6 +1,6 @@
 import React from 'react'
 import AddAssignmentForm from './addAssignment'
-import ViewAllAssignments from './viewallAssignment';
+import ViewAllAssignments from '../components/viewallAssignment';
 
 const Check = () => {
     // let c='PHYS202';

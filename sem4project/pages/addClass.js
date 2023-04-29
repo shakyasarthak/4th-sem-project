@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { classes } from '../components/class'
 import React from 'react';
-import { GlobalStyle } from '@/lib/Wrap';
-import ViewAllClass from './viewallClass';
+import { GlobalStyle } from '@/components/Wrap';
+import ViewAllClass from '../components/viewallClass';
 
 
 const AddClassForm = () => {

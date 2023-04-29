@@ -1,7 +1,7 @@
 import React from 'react';
-import { assignments } from '../components/assignment';
+import { assignments } from './assignment';
 import  {BsDownload} from "react-icons"
-import { GlobalStyle } from '@/lib/Wrap';
+import { GlobalStyle } from '@/components/Wrap';
 
 const ViewAllAssigns = () => {
   return (
@@ -13,7 +13,7 @@ const ViewAllAssigns = () => {
       {assignments.map((assign) => (
         <div key={assign.id} className='note' >
           <h2>{assign.subjectName} - {assign.subjectCode} {assign.classCode} {assign.year}</h2>
-          <p>Link: <a href={assign.link}>{assign.link}</a></p>
+        <p> {assign.description}    Link: <a href={assign.link}>{assign.link} </a></p>
         </div>
       ))}
       </div>

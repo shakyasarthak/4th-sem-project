@@ -2,9 +2,9 @@
 
 
 import React from 'react';
-import { pastpapers } from '../components/pastpaper';
+import { pastpapers } from './pastpaper';
 import  {BsDownload} from "react-icons"
-import { GlobalStyle } from '@/lib/Wrap';
+import { GlobalStyle } from '@/components/Wrap';
 
 const ViewAllPapers = () => {
   return (

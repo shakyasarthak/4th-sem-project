@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { quizs } from '../components/quiz'
 import React from 'react';
-import { GlobalStyle } from '@/lib/Wrap';
-import ViewAllPapers from './viewallQuiz';
+import { GlobalStyle } from '@/components/Wrap';
+// import ViewAllPapers from './viewallQuiz';
+import ViewAllQuiz from '../components/viewallQuiz';
 
-const AddQuizForm = (classCode) => {
+const AddQuizForm = () => {
   const [formQuiz, setFormQuiz] = useState(quizs);
+  const [showForm4, setShowForm4] = useState(false);
 
   function handleInputChange1(event) {
     setFormQuiz({
@@ -20,7 +22,7 @@ const AddQuizForm = (classCode) => {
    
     const newQuiz = {
       id: nanoid(),
-      classCode:classCode,
+      // classCode:classCode,
       ...formQuiz
     };
     quizs.push(newQuiz);
@@ -29,81 +31,61 @@ const AddQuizForm = (classCode) => {
       subjectName: '',
       subjectCode : '',
       link: '',
-      deadline:'',
+      // deadline:'',
       description:''
     });
-    setShowForm(false);
+    setShowForm4(false);
   }
 
   return (
     <>
     <GlobalStyle/>
     <section className='quiz quiz-small'>
-      <h1> Quiz</h1>
+      <h1> Assignment </h1>
       <div className="button-container">
+        <button className="add-button" onClick={() => setShowForm4(true)}>Add Assignment</button>
+        {showForm4 && (
           <div className="form-container">
-    <form onSubmit={handleSubmit1}>
-      <div>
-        <label htmlFor="classCode">Class Code:</label>
-        <input
-          type="text"
-          id="classCode"
-          value={formQuiz.classCode}
-          onChange={handleInputChange1}
-        />
-      </div>
-      <div>
-        <label htmlFor="subjectName">Subject Name:</label>
-        <input
-          type="text"
-          id="subjectName"
-          value={formQuiz.subjectName}
-          onChange={handleInputChange1}
-        />
-      </div>
-      <div>
-        <label htmlFor="subjectCode">Subject Code:</label>
-        <input
-          type="text"
-          id="subjectCode"
-          value={formQuiz.subjectCode}
-          onChange={handleInputChange1}
-        />
-      </div>
-      <div>
-        <label htmlFor="link">Link:</label>
-        <input
-          type="text"
-          id="link"
-          value={formQuiz.link}
-          onChange={handleInputChange1}
-        />
-      </div>
-      <div>
-        <label htmlFor="deadline">Deadline:</label>
-        <input
-          type="date"
-          id="deadline"
-          value={formQuiz.deadline}
-          onChange={handleInputChange1}
-        />
-      </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          value={formQuiz.description}
-          onChange={handleInputChange1}
-        />
-      </div>
-      <button type="submit">Add Quiz</button>
-    </form>
+            <form onSubmit={handleSubmit1} className='setup-form'>
+            <div className='form-control'>
+              <label>
+                 Class Code:
+                <input type="text" name="classCode" value={formQuiz.classCode} onChange={handleInputChange1}  />
+              </label></div>
+              <div className='form-control'>
+              <label>
+                 Subject:
+                <input type="text" name="subjectName" value={formQuiz.subjectName} onChange={handleInputChange1}  />
+              </label></div>
+              <div className='form-control'>
+              <label>
+                Subject Code :
+                <input type="text" name="subjectCode" value={formQuiz.subjectCode} onChange={handleInputChange1}  />
+              </label></div>
+              <div className='form-control'>
+              <label>
+                Year :
+                <input type="text" name="year" value={formQuiz.year} onChange={handleInputChange1} />
+              </label></div>
+              <div className='form-control'>
+              <label>
+                 Link :
+                <input type="url" name="link" value={formQuiz.link} onChange={handleInputChange1} />
+              </label></div>
+              <div className='form-control'>
+              <label>
+                 Description
+                <input type="text" name="description" value={formQuiz.description} onChange={handleInputChange1} />
+              </label></div>
+              <button type="submit" className='submit-btn'>Add </button>
+            </form>
           </div>
+        )}
       </div>
       </section>
-    {/* <div className="container">
-       <ViewAllPapers/>
-    </div> */}
+    <div className="container">
+       <ViewAllQuiz/>
+    </div>
     </>
   );
 };

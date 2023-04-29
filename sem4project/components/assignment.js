@@ -8,7 +8,8 @@ let assignments = [
         subjectName: 'Mathematics',
         subjectCode: 'Spring',
         year: '2022',
-        link: 'https://example.com/mathematics-spring-2022.pdf'
+        link: 'https://example.com/mathematics-spring-2022.pdf',
+         description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
         id: nanoid(),
@@ -16,7 +17,8 @@ let assignments = [
         subjectName: 'Computer Science',
         subjectCode: 'Fall',
         year: '2021',
-        link: 'https://example.com/computer-science-fall-2021.pdf'
+        link: 'https://example.com/computer-science-fall-2021.pdf',
+        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
         id: nanoid(),
@@ -24,7 +26,8 @@ let assignments = [
         subjectName: 'Geomatics',
         subjectCode: 'Spring',
         year: '2021',
-        link: 'https://example.com/mathematics-spring-2022.pdf'
+        link: 'https://example.com/mathematics-spring-2022.pdf',
+        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
         id: nanoid(),
@@ -32,7 +35,8 @@ let assignments = [
         subjectName: 'Computer Science',
         subjectCode: 'Spring',
         year: '2021',
-        link: 'https://example.com/computer-science-fall-2021.pdf'
+        link: 'https://example.com/computer-science-fall-2021.pdf',
+        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
         id: nanoid(),
@@ -40,7 +44,8 @@ let assignments = [
         subjectName: 'Physics',
         subjectCode: 'Fall',
         year: '2022',
-        link: 'https://example.com/physics-fall-2022.pdf'
+        link: 'https://example.com/physics-fall-2022.pdf',
+        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       }
 ];
 

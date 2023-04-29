@@ -8,8 +8,8 @@ let quizs= [
         subjectName: 'Computer Science',
         subjectCode: 'COMP101',
         link: 'https://example.com/quiz1.pdf',
-        deadline: new Date('2023-05-01'),
-        description: 'Write a program in Python to implement a binary search algorithm.'
+        // deadline: new Date('2023-05-01'),
+        description: 'Finish this quiz ',
       },
       {
         id: nanoid(),
@@ -17,8 +17,8 @@ let quizs= [
         subjectName: 'Physics',
         subjectCode: 'PHYS201',
         link: 'https://example.com/quiz2.pdf',
-        deadline: new Date('2023-05-10'),
-        description: 'Derive the equations of motion for a particle in three dimensions using Lagrangian mechanics.'
+        // deadline: new Date('2023-05-10'),
+        description: 'Finish this quiz ',
       },
       {
         id: nanoid(),
@@ -26,8 +26,8 @@ let quizs= [
         subjectName: 'Mathematics',
         subjectCode: 'MATH101',
         link: 'https://example.com/quiz3.pdf',
-        deadline: new Date('2023-05-15'),
-        description: 'Prove that the determinant of an orthogonal matrix is either 1 or -1.'
+        // deadline: new Date('2023-05-15'),
+        description: 'Finish this quiz ',
       }
 ];
 
