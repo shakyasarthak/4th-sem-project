@@ -7,20 +7,24 @@ import { nanoid } from 'nanoid';
 import { assignments } from "@/components/assignment";
 import AddClassForm from "./addClass";
 import AddAssignmentForm1 from "./addAssignment1";
-import AddQuizForm from "./addQuiz";
+import AddQuizForm1 from "./addQuiz1";
 import { quizs } from "@/components/quiz";
 
 function TeacherDashboards() {
-
+    const [classesState, setClasses] = useState(classes);
 
   const handleDeleteClass = (classCodeToDelete) => {
-    classes.filter((classItem) => classItem.classCode !== classCodeToDelete);
+    const newClasses = classesState.filter(
+        (classItem) => classItem.classCode !== classCodeToDelete
+      );
+      setClasses(newClasses);
+      setSelectedClass(null);
   };
 
   const [selectedClass, setSelectedClass] = useState(null);
   // const [selectedAssignment, setSelectedAssignment] = useState(null);
   const handleSelectClass = (classCode) => {
-    const selected = classes.find((classItem) => classItem.classCode === classCode);
+    const selected = classesState.find((classItem) => classItem.classCode === classCode);
     const selectedAssignments = assignments.filter((assignment) => assignment.classCode === classCode);
     const selectedQuizs = quizs.filter((quiz) => quiz.classCode === classCode);
     setSelectedClass({...selected, assignments: selectedAssignments, quizs:selectedQuizs});
@@ -76,15 +80,10 @@ function TeacherDashboards() {
           <h4>Quizzes</h4>
           <li>
               {selectedClass.quizs.map((quiz) => (
-              <li key={quiz.id}>
-               
-                {/* <a href={quiz.quizLink} target="_blank" rel="noreferrer">
-                  Quiz 
-                </a>
-               {' - '}
-                Deadline: {quiz.duedate.toLocaleString()} */}
-                <a href="quiz.quizlink"> {quiz.title}</a>
-              </li>
+               <div key={quiz.id} className='note' >
+              <h6>{quiz.subjectCode} - {quiz.subjectName} </h6>
+              <p>   Link: <a href={quiz.link}>{quiz.description}  </a></p>
+            </div>
             ))}
             </li>
             </ul>
@@ -108,7 +107,7 @@ function TeacherDashboards() {
           
        
           {selectedClass.action === "assignment" && <AddAssignmentForm1 classCode={selectedClass.classCode}  />}
-          {selectedClass.action === "quiz" && <AddQuizForm/>}
+          {selectedClass.action === "quiz" && <AddQuizForm1 classCode={selectedClass.classCode}/>}
         </div>
       )}
     
