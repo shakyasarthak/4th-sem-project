@@ -5,10 +5,11 @@ for the reacher and student to share the class assignments, resource and gain ac
 
 **FRONT-END:**
 * React.js
+* Next.js
 * HTML
 * CSS
 
+
 **BACK-END:**
 * MongoDb
-* Express.js
 * Node.js
