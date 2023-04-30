@@ -1,6 +1,6 @@
-// const mongoClient = require('./config/default')
-// const mongoose = require('mongoose')
-
+//const mongoClient = require('./config/default')
+//const mongoose = require('mongoose')
+// import mongoose, {mongo} from "mongoose";
 // // MongoDB
 
 // mongoose.connect(
@@ -12,7 +12,7 @@
 //   console.log('MongoDB database connection established successfully')
 // })
 
-// import mongoose, {mongo} from "mongoose";
+
 
 // const connectDB = async () => {
 //     if(mongoose.connections.readyState >=1) return;
@@ -21,7 +21,7 @@
     
 // };
 
-// export default connectDB;ClientSession
+// export default connectDB;//ClientSession
 
 import { MongoClient } from "mongodb";
 

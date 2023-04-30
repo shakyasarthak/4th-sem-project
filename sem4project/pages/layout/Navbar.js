@@ -28,7 +28,8 @@ const Navbar =() => {
           {status ==  "unauthenticated" && <Link class ={x.menu} href ="/">HOME</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ='/About'>ABOUT</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ="/Contact">CONTACT</Link>}
-          {status == "authenticated" && <Link class = {x.menu} href="/About">naya about</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/usePastPaper">PAST PAPER</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/notes_F">MY NOTES</Link>}
           {userEmail.endsWith("@student.ku.edu.np") && <Link class={x.menu} href="/">{session.user.name}</Link>}
         </div>
         <div className={x.logins}>

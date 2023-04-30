@@ -1,5 +1,9 @@
-function Home () {
-    return <></>
+import React from 'react'
+
+const usePastPaper = () => {
+  return (
+    <div>find PastPapers</div>
+  )
 }
-  
-export default Home
+
+export default usePastPaper

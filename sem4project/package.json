@@ -16,6 +16,7 @@
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "mongodb-provider": "^0.1.1",
+    "mongoose": "^7.1.0",
     "next": "^13.3.0",
     "next-auth": "^4.22.1",
     "postcss": "8.4.23",

@@ -41,9 +41,7 @@ const handler = async (req, res) => {
     try{
         if(!student) await init()
         const result = await student
-            .find({
-                
-            })
+            .find({})
             .toArray()
         return res.status(200).json({student: result})
     }catch(error){
