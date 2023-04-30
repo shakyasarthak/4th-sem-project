@@ -30,12 +30,4 @@ function addClasses(newClasses) {
   classes = [...classes, newClassesWithId];
 }
 
-// function updateClasses(id, newClasses) {
-//   const newClassesWithId = {
-//     ...newClasses,
-//     id,
-//   };
-//   classes = classes.map((d) => (d.id === id ? newClassesWithId : d));
-// }
-
 export { classes, addClasses };

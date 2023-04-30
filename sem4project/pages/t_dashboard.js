@@ -11,20 +11,15 @@ import AddQuizForm1 from "./addQuiz1";
 import { quizs } from "@/components/quiz";
 
 function TeacherDashboards() {
-    const [classesState, setClasses] = useState(classes);
+    const [selectedClass, setSelectedClass] = useState(null);
+  let [classes1, setClasses] = useState(classes); // Initialize the state of `classes` with the `classes` array
 
   const handleDeleteClass = (classCodeToDelete) => {
-    const newClasses = classesState.filter(
-        (classItem) => classItem.classCode !== classCodeToDelete
-      );
-      setClasses(newClasses);
-      setSelectedClass(null);
+    setClasses = classes1.filter((classItem) => classItem.classCode !== classCodeToDelete);
   };
 
-  const [selectedClass, setSelectedClass] = useState(null);
-  // const [selectedAssignment, setSelectedAssignment] = useState(null);
   const handleSelectClass = (classCode) => {
-    const selected = classesState.find((classItem) => classItem.classCode === classCode);
+    const selected = classes1.find((classItem) => classItem.classCode === classCode);
     const selectedAssignments = assignments.filter((assignment) => assignment.classCode === classCode);
     const selectedQuizs = quizs.filter((quiz) => quiz.classCode === classCode);
     setSelectedClass({...selected, assignments: selectedAssignments, quizs:selectedQuizs});
@@ -50,67 +45,91 @@ function TeacherDashboards() {
       <hr />
      
       {selectedClass === "create" && <AddClassForm />}
-      {selectedClass && selectedClass !== "create" && (
-        <div>
-          <h3>{selectedClass.className}</h3>
-          <p>
-            <strong>Subject: </strong>
-            {selectedClass.subject}
-          </p>
-          <p>
-            <strong>Description: </strong>
-            {selectedClass.description}
-          </p>
-          <p>
-            <strong>Class Code: </strong>
-            {selectedClass.classCode}
-          </p>
-          <ul>
-            <h4>Assignments</h4>
-            {selectedClass.assignments.map((assignment) => (
-              <li key={assignment.id}>
-                {assignment.title}
-               {assignment.description}
-             
-              </li>
-            ))}
-          
-          </ul>
-          <ul>
-          <h4>Quizzes</h4>
-          <li>
-              {selectedClass.quizs.map((quiz) => (
-               <div key={quiz.id} className='note' >
-              <h6>{quiz.subjectCode} - {quiz.subjectName} </h6>
-              <p>   Link: <a href={quiz.link}>{quiz.description}  </a></p>
-            </div>
-            ))}
+    {selectedClass && selectedClass !== "create" && (
+      <div>
+        <h3>{selectedClass.className}</h3>
+        <p>
+          <strong>Subject: </strong>
+          {selectedClass.subject}
+        </p>
+        <p>
+          <strong>Description: </strong>
+          {selectedClass.description}
+        </p>
+        <p>
+          <strong>Class Code: </strong>
+          {selectedClass.classCode}
+        </p>
+        <ul>
+          <h4>Assignments</h4>
+          {selectedClass.assignments.map((assignment) => (
+            <li key={assignment.id}>
+              {assignment.title}
+              {assignment.description}
             </li>
-            </ul>
-          <nav>
-            <ul>
-              <li>
-                <a href="#" onClick={() => setSelectedClass({ ...selectedClass, action: "assignment" })}>
-                  Add Assignment
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={() => setSelectedClass({ ...selectedClass, action: "quiz" })}>
-                  Add Quiz
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <hr />
+          ))}
+        </ul>
+        <ul>
+          <h4>Quizzes</h4>
           
-          <button onClick={() => handleDeleteClass(selectedClass.classCode)}>Delete Class</button>
+            {selectedClass.quizs.map((quiz) => (
+              <li key={quiz.id} className="note">
+                <h6>
+                  {quiz.subjectCode} - {quiz.subjectName}
+                </h6>
+                <p>
+                  Link:{" "}
+                  <a href={quiz.link}>{quiz.description} </a>
+                </p>
+              </li>
+            ))}
           
-       
-          {selectedClass.action === "assignment" && <AddAssignmentForm1 classCode={selectedClass.classCode}  />}
-          {selectedClass.action === "quiz" && <AddQuizForm1 classCode={selectedClass.classCode}/>}
-        </div>
-      )}
-    
+        </ul>
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="#"
+                onClick={() =>
+                  setSelectedClass({
+                    ...selectedClass,
+                    action: "assignment",
+                  })
+                }
+              >
+                Add Assignment
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                onClick={() =>
+                  setSelectedClass({ ...selectedClass, action: "quiz" })
+                }
+              >
+                Add Quiz
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <hr />
+
+        <button onClick={() => handleDeleteClass(selectedClass.classCode)}>
+          Delete Class
+        </button>
+
+        {selectedClass.action === "assignment" && (
+          <AddAssignmentForm1
+            classCode={selectedClass.classCode}
+          />
+        )}
+        {selectedClass.action === "quiz" && (
+          <AddQuizForm1
+            classCode={selectedClass.classCode}
+          />
+        )}
+      </div>
+    )}
       {!selectedClass && (
         <div>
           <h3>My Classes</h3>
@@ -133,8 +152,6 @@ function TeacherDashboards() {
                 <button onClick={() => handleSelectClass(classItem.classCode)}>View Details</button>
               </li>
             ))}
-          </ul>
-          <ul>
           </ul>
         </div>
       )}

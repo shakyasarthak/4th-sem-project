@@ -104,7 +104,7 @@ export const GlobalStyle=createGlobalStyle`body {
   margin: 4rem auto;
   background: var(--clr-white);
   border-radius: var(--radius);
-  padding: 3rem;
+  // padding: 3rem;
 }
 .quiz-small {
   max-width: 500px;

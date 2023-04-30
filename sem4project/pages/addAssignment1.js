@@ -50,9 +50,9 @@ const AddAssignmentForm1 = ({ classCode }) => {
     <>
       <GlobalStyle/>
       <section className='quiz quiz-small'>
-        <h1>Assignment</h1>
+        {/* <h1>Assignment</h1> */}
         <div className="button-container">
-          <button className="add-button" onClick={() => setShowForm(true)}>Add Assignment</button>
+          <button className="add-button" onClick={() => setShowForm(true)}>Assignment</button>
           {showForm && (
             <div className="form-container">
               <form onSubmit={handleSubmit} className='setup-form'>
