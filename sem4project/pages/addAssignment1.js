@@ -8,15 +8,19 @@ import ViewAllAssigns from '../components/viewallAssignment';
 const AddAssignmentForm1 = ({ classCode }) => {
   const [formAssignment, setFormAssignment] = useState({
     classCode: classCode,
+    assignmentId:'',
     subjectName: '',
     subjectCode: '',
     year: '',
     link: '',
     deadline: ''
   });
-
+ const [assignmentno,setAssignmentno]=useState('')
   const [showForm, setShowForm] = useState(false);
 
+  function handleAssignmentnoChange(event) {
+    setAssignmentno(event.target.value);
+  }
   function handleInputChange(event) {
     setFormAssignment({
       ...formAssignment,
@@ -26,9 +30,9 @@ const AddAssignmentForm1 = ({ classCode }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-
+       const assignno =classCode+"-"+assignmentno;
     const newAssignment = {
-      id: nanoid(),
+      assignmentId: assignno,
       ...formAssignment
     };
 
@@ -57,6 +61,10 @@ const AddAssignmentForm1 = ({ classCode }) => {
             <div className="form-container">
               <form onSubmit={handleSubmit} className='setup-form'>
                 <div className='form-control'>
+                <label>
+                    Assignment No :
+                    <input type="text" name="assignmentno" value={assignmentno} onChange={handleAssignmentnoChange} />
+                  </label>
                   <label>
                     Class Code:
                     <input type="text" name="classCode" value={classCode} readOnly />

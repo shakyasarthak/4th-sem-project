@@ -1,56 +1,65 @@
-// addEnroll.js
+import React, { useState } from 'react';
+import { enclasses } from '../components/enrolled_class';
+import { classes } from '../components/class';
+import ViewallEnroll from '../components/viewAllEnrolled';
 
-import { useState } from 'react';
-import { classes } from '@/components/class';
-import { enclasses } from '@/components/enrolled_class';
-import { addEnroll } from '@/components/enrolled_class';
-import ViewAllEnroll from '@/pages/viewallEnroll';
-
-function AddEnroll() {
+const AddEnroll = () => {
   const [classCode, setClassCode] = useState('');
-  const [studentId,setStudentId]=useState('')
-  const [enrollmentMessage, setEnrollmentMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleEnroll = (event) => {
+  
+
+  const handleInputChange = event => {
+    setClassCode(event.target.value);
+  };
+
+  const handleSubmit = event => {
     event.preventDefault();
-    const classToEnroll = classes.find((c) => c.classCode === classCode);
 
-    if (classToEnroll) {
-      const enrolledClass = {
-        classCode,
-        studentId:"Ssd123", // replace with actual student ID
-      };
-      addEnroll(enrolledClass);
-      setEnrollmentMessage(`You are now enrolled in ${classToEnroll.className}.`);
-      setClassCode('');
-      // setStudentId('');
-    } else {
-      setEnrollmentMessage('Invalid class code. Please try again.');
+    // Check if the class code is already enrolled
+    const isAlreadyEnrolled = enclasses.some(e => e.classCode === classCode);
+    if (isAlreadyEnrolled) {
+      setErrorMessage('You are already enrolled in this class');
+      return;
     }
+
+    // Check if the class code is valid
+    const classInfo = classes.find(c => c.classCode === classCode);
+    if (!classInfo) {
+      setErrorMessage('Invalid class code');
+      return;
+    }
+
+    // Add the enrollment
+    const newEnrollment = {
+      id: Math.random().toString(36).substr(2, 9),
+      classCode: classCode,
+      studentId: '123456'
+    };
+    enclasses.push(newEnrollment);
+    setClassCode('');
+    setErrorMessage('');
   };
 
   return (
     <div>
-        <div>
-      <h2>Enroll in a Class</h2>
-      <form onSubmit={handleEnroll}>
+      <h1>Enrolled Classes</h1>
+      <form onSubmit={handleSubmit}>
         <label>
-          Class Code:
-          <input type="text" value={classCode} onChange={(e) => setClassCode(e.target.value)} />
+          Enter Class Code:
+          <input type="text" value={classCode} onChange={handleInputChange} />
         </label>
-        <label>
-          Student Id:
-          <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
-        </label>
-        <button type="submit">Enroll</button>
+        <button type="submit">Add Enrollment</button>
+        {errorMessage && <div>{errorMessage}</div>}
       </form>
-      {enrollmentMessage && <p>{enrollmentMessage}</p>}
-    </div>
-    {/* <div>
-        <ViewAllEnroll/>
-    </div> */}
+     <ViewallEnroll/>
+     
     </div>
   );
-}
+};
 
 export default AddEnroll;
+
+
+
+

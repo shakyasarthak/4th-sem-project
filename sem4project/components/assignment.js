@@ -3,8 +3,8 @@ import { nanoid } from 'nanoid';
 
 let assignments = [
     {
-        id: nanoid(),
-        classCode: 'CS101',
+        assignmentId:"MATH202-1",
+        classCode: 'MATH202',
         subjectName: 'Mathematics',
         subjectCode: 'Spring',
         year: '2022',
@@ -12,7 +12,7 @@ let assignments = [
          description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
-        id: nanoid(),
+        assignmentId:'CS101-1',
         classCode: 'CS101',
         subjectName: 'Computer Science',
         subjectCode: 'Fall',
@@ -21,16 +21,16 @@ let assignments = [
         description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
-        id: nanoid(),
-        classCode: 'CS101',
-        subjectName: 'Geomatics',
+        assignmentId:"MATH202-1",
+        classCode: 'MATH202',
+        subjectName: 'Mathematics',
         subjectCode: 'Spring',
         year: '2021',
         link: 'https://example.com/mathematics-spring-2022.pdf',
         description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
-        id: nanoid(),
+        assignmentId: 'CS101-2',
         classCode: 'CS101',
         subjectName: 'Computer Science',
         subjectCode: 'Spring',
@@ -39,7 +39,7 @@ let assignments = [
         description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
-        id: nanoid(),
+        assignmentId: 'CS101-3',
         classCode: 'CS101',
         subjectName: 'Physics',
         subjectCode: 'Fall',
@@ -52,7 +52,7 @@ let assignments = [
 function addAssignments(newAssignments) {
   const newAssignmentsWithId = {
     ...newAssignments,
-    id: nanoid(),
+    assignmentId: nanoid(),
     
   };
   assignments = [...assignments, newAssignmentsWithId];
