@@ -28,14 +28,14 @@ let classes= [
       className: 'BSc Batch 2022 ' ,
       subject: 'Cell Biology',
       description: 'This course covers the fundamentals of cell biology, including cell structure, function, and communication.',
-      classCode: 'kjnfwe48',
+      classCode: 'MATH202',
     },
     {
       id: nanoid(),
       className: 'Law Batch 2020 LAW 301' ,
       subject: 'Constitutional Law',
       description: 'This course explores the principles and practices of constitutional law, focusing on the interpretation and application of the U.S. Constitution.',
-      classCode: 'dkjbds94',
+      classCode: 'CS101',
     },
     {
       id: nanoid(),

@@ -2,5 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/t_dashboard": "pages/t_dashboard.js"
+  "/s_dashboard": "pages/s_dashboard.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }

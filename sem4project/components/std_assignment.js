@@ -8,7 +8,7 @@ let std_assignments = [
         slink: 'https://example.com/mathematics-spring-2022.pdf',
         status: 'submitted',
         studentId: 'std123',
-        assignentId: "CS101-1"
+        assignmentId: "CS101-1"
         
       },
       {
@@ -17,7 +17,7 @@ let std_assignments = [
         slink: 'https://example.com/calculus-fall-2022.pdf',
         status: 'submitted',
         studentId: 'std234',
-        assignentId: "MATH202-1"
+        assignmentId: "MATH202-1"
       },
       {
         submission_id: nanoid(),
@@ -25,7 +25,7 @@ let std_assignments = [
         slink: 'https://example.com/physics-spring-2022.pdf',
         status: 'submitted',
         studentId: 'std345',
-        assignentId: "PHYS101-1"
+        assignmentId: "PHYS101-1"
       },
       {
         submission_id: nanoid(),
@@ -33,7 +33,7 @@ let std_assignments = [
         slink: 'https://example.com/algorithms-spring-2023.pdf',
         status: 'submitted',
         studentId: 'std456',
-        assignentId: "CS202-1",
+        assignmentId: "CS202-2",
       },
       {
         submission_id: nanoid(),
@@ -41,18 +41,19 @@ let std_assignments = [
         slink: 'https://example.com/biology-fall-2022.pdf',
         status: 'submitted',
         studentId: 'std567',
+        assignentId: "BTO101-1",
       },
 ];
 
 function addStd_Assignments(newStd_Assignments) {
   const newStd_AssignmentsWithId = {
     ...newStd_Assignments,
-    id: nanoid(),
+    submission_id: nanoid(),
     
   };
   assignments = [...assignments, newStd_AssignmentsWithId];
 }
-export { std_assignments, addAssignments };
+export { std_assignments, addStd_Assignments };
 
 
 

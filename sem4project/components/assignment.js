@@ -21,7 +21,7 @@ let assignments = [
         description: 'lore fdhefh shvr csfy ycrfv syshgfv',
       },
       {
-        assignmentId:"MATH202-1",
+        assignmentId:"MATH202-2",
         classCode: 'MATH202',
         subjectName: 'Mathematics',
         subjectCode: 'Spring',
