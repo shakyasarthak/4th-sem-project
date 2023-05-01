@@ -4,6 +4,7 @@ import { std_assignments } from "@/components/std_assignment";
 import Sub_assignment from "./submit_assignment";
 import { assignments } from "@/components/assignment";
 import AddEnroll from "./addEnroll";
+import { quizs } from "@/components/quiz";
 import { classes } from "@/components/class";
 import { ST } from "next/dist/shared/lib/utils";
 
@@ -14,7 +15,8 @@ const StudentDashboard = ()=> {
     const selected = enclasses.find((classItem) => classItem.classCode === classCode);
     const classDetails = classes.find((classItem) => classItem.classCode === classCode);
     const selectedAssignments = assignments.filter((assignment) => assignment.classCode === classCode);
-    setSelectedClass({...selected, ...classDetails, assignments:selectedAssignments});
+    const selectedQuizs = quizs.filter((quiz) => quiz.classCode === classCode);
+    setSelectedClass({...selected, ...classDetails, assignments:selectedAssignments,quizs:selectedQuizs});
   };
 
   const isAssignmentSubmitted = (classCode, assignmentId) => {
@@ -99,7 +101,16 @@ const StudentDashboard = ()=> {
               </li>
             ))}
           </ul>
-
+          <ul>
+            <h4>Quizzes</h4>
+            {selectedClass.quizs.map((quiz) => (
+              <li key={quiz.id}>
+                  <h6>{quiz.subjectCode} - {quiz.subjectName} </h6>
+              <h6>ClassCode : {quiz.classCode}</h6>
+             <p>{quiz.description}    Link: <a href={quiz.link}>{quiz.link} </a></p>
+              </li>
+            ))}
+          </ul>
           <hr />
 
           <button onClick={() => setSelectedClass(null)}>
