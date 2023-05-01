@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/s_dashboard": [
+    "/viewAllSubmission": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/s_dashboard.js"
+      "static/chunks/pages/viewAllSubmission.js"
     ]
   },
   "ampFirstPages": []

@@ -105,8 +105,8 @@ const StudentDashboard = ()=> {
             <h4>Quizzes</h4>
             {selectedClass.quizs.map((quiz) => (
               <li key={quiz.id}>
-                  <h6>{quiz.subjectCode} - {quiz.subjectName} </h6>
-              <h6>ClassCode : {quiz.classCode}</h6>
+                  {/* <h6>{quiz.subjectCode} - {quiz.subjectName} </h6>
+              <h6>ClassCode : {quiz.classCode}</h6> */}
              <p>{quiz.description}    Link: <a href={quiz.link}>{quiz.link} </a></p>
               </li>
             ))}

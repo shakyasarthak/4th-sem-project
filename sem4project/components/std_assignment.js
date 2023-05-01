@@ -7,7 +7,7 @@ let std_assignments = [
         classCode: 'CS101',
         slink: 'https://example.com/mathematics-spring-2022.pdf',
         status: 'submitted',
-        studentId: 'std123',
+        studentId: '123',
         assignmentId: "CS101-1"
         
       },
