@@ -24,14 +24,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-<<<<<<< Updated upstream
     ],
     "/perStd": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/perStd.js"
-=======
->>>>>>> Stashed changes
     ]
   },
   "ampFirstPages": []
