@@ -30,4 +30,12 @@ model student{
   id String @id
   email String @unique
   name String
+  assignment Decimal
+  quiz Decimal
+}
+
+model teacher{
+  id String @id
+  email String @unique
+  name String
 }
