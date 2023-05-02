@@ -23,27 +23,37 @@
 
 // export default connectDB;//ClientSession
 
-import { MongoClient } from "mongodb";
+// import { MongoClient } from "mongodb";
 
-const URI = 'mongodb+srv://shakyasarthak:12345@users.n9c1vxh.mongodb.net/?retryWrites=true&w=majority'
+// const URI = 'mongodb+srv://shakyasarthak:12345@users.n9c1vxh.mongodb.net/?retryWrites=true&w=majority'
 
-const options ={}
+// const options ={}
 
-if(!URI) throw new Error("No URI found");
+// if(!URI) throw new Error("No URI found");
 
-let client = new MongoClient(URI, options)
-let clientPromise 
+// let client = new MongoClient(URI, options)
+// let clientPromise 
 
-if(process.env.NODE_ENV === "production"){
-    if(!global._mongoClient){
-        global._mongoClient = client.connect()
-        console.log("Connected to MongoDB");
-    }
+// if(process.env.NODE_ENV === "production"){
+//     if(!global._mongoClient){
+//         global._mongoClient = client.connect()
+//         console.log("Connected to MongoDB");
+//     }
 
-    clientPromise = global._mongoClientPromise
-}else{
-    clientPromise = client.connect()
-}
+//     clientPromise = global._mongoClientPromise
+// }else{
+//     clientPromise = client.connect()
+// }
 
-export default clientPromise
+// export default clientPromise
   
+import { PrismaClient } from '@prisma/client';
+
+const  prisma = new PrismaClient();
+
+export async function getServerSideProps() {
+  const allPosts = await prisma.post.findMany()
+  return {
+    props: { allPosts },
+  }
+}
