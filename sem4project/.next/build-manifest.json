@@ -29,6 +29,16 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/perStd.js"
+    ],
+    "/stdInsideClass": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/stdInsideClass.js"
+    ],
+    "/studentDashboard": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/studentDashboard.js"
     ]
   },
   "ampFirstPages": []
