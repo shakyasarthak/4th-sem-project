@@ -7,9 +7,9 @@ const Login_choice = () => {
     return(
         <div>
             <h1>Choose your login</h1>
-            <button onClick={() => {signIn('google', {callbackUrl: '/studentDashboard'})}}>Student</button>
+            <button onClick={() => {signIn('google', {callbackUrl: '/s_dashboard'})}}>Student</button>
             <button onClick={() => {signIn('google', {callbackUrl: '/adminDashboard'})}}>ADMIN</button>
-            <button onClick={() => {signIn('google', {callbackUrl: '/TeacherDashboard'})}}>Teacher</button>
+            <button onClick={() => {signIn('google', {callbackUrl: '/t_dashboard'})}}>Teacher</button>
         </div>
     )
 }
