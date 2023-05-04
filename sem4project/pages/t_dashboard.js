@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import {classes} from '../components/class'
-import CreateClass from "./teacherCreateClass";
-import Assignment from "./teacherAssignment";
-import Quiz from "./teacherQuiz"
+// import CreateClass from "./teacherCreateClass";
+// import Assignment from "./teacherAssignment";
+// import Quiz from "./teacherQuiz"
 import { nanoid } from 'nanoid';
 import { assignments } from "@/components/assignment";
 import AddClassForm from "./addClass";
