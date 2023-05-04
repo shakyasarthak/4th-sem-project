@@ -28,7 +28,9 @@ const Navbar =() => {
           {status ==  "unauthenticated" && <Link class ={x.menu} href ="/">HOME</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ='/About'>ABOUT</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ="/Contact">CONTACT</Link>}
-          {status == "authenticated" && <Link class = {x.menu} href="/usePastPaper">PAST PAPER</Link>}
+          {userEmail.endsWith("@student.ku.edu.np") && <Link class ={x.menu} href ="/s_dashboard">DASHBOARD</Link>}
+          {userEmail.endsWith("@gmail.com") && <Link class ={x.menu} href ="/t_dashboard">DASHBOARD</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="#">PAST PAPER</Link>}
           {status == "authenticated" && <Link class = {x.menu} href="/notes_F">MY NOTES</Link>}
           {userEmail.endsWith("@student.ku.edu.np") && <Link class={x.menu} href="#">{session.user.name}</Link>}
         </div>
@@ -36,7 +38,7 @@ const Navbar =() => {
         {status == "unauthenticated" && <Link href="/loginChoice">
             <button className={x.btn}>
               LOGIN
-            </button></Link>}
+            </button></Link>} 
             {status == "authenticated" && <Link href="/">
             <button className={x.btn} onClick={() => signOut({ callbackUrl: '/' })}>
               LOGOUT
