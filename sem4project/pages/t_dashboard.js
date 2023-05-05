@@ -61,7 +61,7 @@ function TeacherDashboards() {
           {selectedClass.classCode}
         </p>
         <ul>
-          <h4>Assignments</h4>
+          <h4>Assignment</h4>
           {selectedClass.assignments.map((assignment) => (
             <li key={assignment.id}>
               {assignment.title}
