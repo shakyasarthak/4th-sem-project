@@ -1,7 +1,5 @@
-
-import Link from "next/link";
 import React from "react";
-import { useSession, signIn } from "next-auth/react";
+import {signIn } from "next-auth/react";
 
 const Login_choice = () => {
     return(
