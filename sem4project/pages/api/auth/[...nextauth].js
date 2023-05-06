@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
-// const prisma = new PrismaClient()
+const prisma = new PrismaClient()
 
 export default NextAuth({
 providers: [
@@ -16,7 +16,7 @@ httpOptions: {
 
   }),
 ],
-// adapter: PrismaAdapter(prisma),
+adapter: PrismaAdapter(prisma),
 secret: process.env.JWT_SECRET,
 callbacks: {
 async signIn({user, account, profile}) {
