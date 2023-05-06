@@ -11,6 +11,9 @@ import { classes } from "@/components/class";
 import { ST } from "next/dist/shared/lib/utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 import y from "styles/s_dashboard.module.css";
+import { getSession } from "next-auth/react";
+import { prisma } from "@prisma/client";
+
 
 const StudentDashboard = () => {
   const [selectedClass, setSelectedClass] = useState(null);

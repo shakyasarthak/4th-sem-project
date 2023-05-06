@@ -56,6 +56,6 @@
 // }
   
 // export default PerStd;
-export default function Admin() {
+export default function perStd() {
   return <></>
 }
