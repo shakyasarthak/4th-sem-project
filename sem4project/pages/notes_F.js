@@ -144,6 +144,81 @@
 
 // export default Notes_F;
 
+// import { useState } from 'react';
+// import { nanoid } from 'nanoid';
+// import Search from '../components/Note_search';
+// import NotesList from '../components/notesList';
+// import styled from 'styled-components';
+// import { GlobalStyle } from '../components/Wrap';
+// import { PrismaClient } from '@prisma/client';
+
+// const Notes_F = ({ notes }) => {
+// 	const [searchText, setSearchText] = useState('');
+
+// 	const addNote = async (text) => {
+// 		const date = new Date();
+// 		const newNote = {
+// 			id: nanoid(),
+// 			text: text,
+// 			date: date.toLocaleDateString(),
+// 		};
+// 		try {
+// 			const prisma = new PrismaClient();
+// 			await prisma.note.create({ data: newNote });
+// 			setNotes([...notes, newNote]);
+// 			await prisma.$disconnect();
+// 		} catch (error) {
+// 			console.error(error);
+// 		}
+// 	};
+
+// 	const deleteNote = async (id) => {
+// 		try {
+// 			const prisma = new PrismaClient();
+// 			await prisma.note.delete({ where: { id: id } });
+// 			const newNotes = notes.filter((note) => note.id !== id);
+// 			setNotes(newNotes);
+// 			await prisma.$disconnect();
+// 		} catch (error) {
+// 			console.error(error);
+// 		}
+// 	};
+
+// 	return (
+// 		<>
+// 			<GlobalStyle />
+// 			<div className="container">
+// 				<h1 className="header">Notes Collection</h1>
+// 				<Search handleSearchNote={setSearchText} />
+// 				<NotesList
+// 					notes={notes.filter((note) =>
+// 						note.text.toLowerCase().includes(searchText)
+// 					)}
+// 					handleAddNote={addNote}
+// 					handleDeleteNote={deleteNote}
+// 				/>
+// 			</div>
+// 		</>
+// 	);
+// };
+
+// export const getServerSideProps = async () => {
+// 	let notes = [];
+// 	try {
+// 		const prisma = new PrismaClient();
+// 		notes = await prisma.notes.findMany();
+// 		await prisma.$disconnect();
+// 	} catch (error) {
+// 		console.error(error);
+// 	}
+
+// 	return {
+// 		props: { notes },
+// 	};
+// };
+
+// export default Notes_F;
+
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Search from '../components/Note_search';
@@ -153,69 +228,74 @@ import { GlobalStyle } from '../components/Wrap';
 import { PrismaClient } from '@prisma/client';
 
 const Notes_F = ({ notes }) => {
-	const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState('');
 
-	const addNote = async (text) => {
-		const date = new Date();
-		const newNote = {
-			id: nanoid(),
-			text: text,
-			date: date.toLocaleDateString(),
-		};
-		try {
-			const prisma = new PrismaClient();
-			await prisma.note.create({ data: newNote });
-			setNotes([...notes, newNote]);
-			await prisma.$disconnect();
-		} catch (error) {
-			console.error(error);
-		}
-	};
+  const addNote = async (title, content, studentId, teacherId) => {
+    try {
+      const prisma = new PrismaClient();
+      const newNote = await prisma.notes.create({
+        data: {
+          title,
+          content,
+          studentId,
+          teacherId,
+        },
+      });
+      setNotes([...notes, newNote]);
+      await prisma.$disconnect();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-	const deleteNote = async (id) => {
-		try {
-			const prisma = new PrismaClient();
-			await prisma.note.delete({ where: { id: id } });
-			const newNotes = notes.filter((note) => note.id !== id);
-			setNotes(newNotes);
-			await prisma.$disconnect();
-		} catch (error) {
-			console.error(error);
-		}
-	};
+  const deleteNote = async (id) => {
+    try {
+      const prisma = new PrismaClient();
+      await prisma.notes.delete({ where: { id } });
+      const newNotes = notes.filter((note) => note.id !== id);
+      setNotes(newNotes);
+      await prisma.$disconnect();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-	return (
-		<>
-			<GlobalStyle />
-			<div className="container">
-				<h1 className="header">Notes Collection</h1>
-				<Search handleSearchNote={setSearchText} />
-				<NotesList
-					notes={notes.filter((note) =>
-						note.text.toLowerCase().includes(searchText)
-					)}
-					handleAddNote={addNote}
-					handleDeleteNote={deleteNote}
-				/>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <GlobalStyle />
+      <div className="container">
+        <h1 className="header">Notes Collection</h1>
+        <Search handleSearchNote={setSearchText} />
+        <NotesList
+          notes={notes.filter((note) =>
+            note.title.toLowerCase().includes(searchText)
+          )}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      </div>
+    </>
+  );
 };
 
 export const getServerSideProps = async () => {
-	let notes = [];
-	try {
-		const prisma = new PrismaClient();
-		notes = await prisma.notes.findMany();
-		await prisma.$disconnect();
-	} catch (error) {
-		console.error(error);
-	}
+  let notes = [];
+  try {
+    const prisma = new PrismaClient();
+    notes = await prisma.notes.findMany({
+      include: {
+        student: true,
+        teacher: true,
+      },
+    });
+    await prisma.$disconnect();
+  } catch (error) {
+    console.error(error);
+  }
 
-	return {
-		props: { notes },
-	};
+  return {
+    props: { notes },
+  };
 };
 
 export default Notes_F;
-

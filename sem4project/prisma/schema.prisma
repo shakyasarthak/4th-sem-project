@@ -80,3 +80,22 @@ model notes {
   student   student @relation(fields: [studentId], references: [id])
   teacher   teacher @relation(fields: [teacherId], references: [id])
 }
+
+model Assignment {
+  id          String    @id @default(cuid())
+  classCode   String
+  subjectName String
+  subjectCode String
+  year        Int
+  link        String
+  deadline    DateTime
+  description String?
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

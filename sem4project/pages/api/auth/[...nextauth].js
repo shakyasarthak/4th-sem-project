@@ -16,7 +16,7 @@ httpOptions: {
 
   }),
 ],
-adapter: PrismaAdapter(prisma),
+//adapter: PrismaAdapter(prisma),
 secret: process.env.JWT_SECRET,
 callbacks: {
 async signIn({user, account, profile}) {
