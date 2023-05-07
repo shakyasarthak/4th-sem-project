@@ -32,6 +32,7 @@ const AboutUs = () => {
           </p>
         </article>
       </Wrapper>
+      <PageHero  />
     </main>
   )
 }

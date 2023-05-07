@@ -7,6 +7,7 @@ const ViewAllQuiz = () => {
   return (
     <>
     <GlobalStyle/>
+    
     <div className='container'>
       <h1>All Classes</h1>
       <div className='notes-list'>

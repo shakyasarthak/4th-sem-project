@@ -14,7 +14,7 @@ const PageHero = () => {
 }
 
 const Wrapper = styled.section`
-  background color :#ffffff;
+  background color:#ABE4DB;
   width: 100%;
   min-height: 10vh;
   display: flex;
@@ -22,7 +22,7 @@ const Wrapper = styled.section`
 
   color: var(--clr-primary-1);
   a {
-    color: var(--clr-primary-3);
+    color: #ABE4DB;
     padding: 0.5rem;
     transition: var(--transition);
   }
