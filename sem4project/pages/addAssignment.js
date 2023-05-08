@@ -267,7 +267,7 @@ const AddAssignmentForm = () => {
               </label></div>
               <div className='form-control'>
               <label>
-                 Subject:
+                 Subject
                 <input type="text" name="subjectName" value={formAssignment.subjectName} onChange={handleInputChange}  />
               </label></div>
               <div className='form-control'>
