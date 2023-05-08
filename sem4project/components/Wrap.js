@@ -122,14 +122,14 @@ export const GlobalStyle=createGlobalStyle`body {
   color: var(--clr-grey-3);
   margin-bottom: 0.5rem;
 }
-.form-input {
-  border: none;
-  background: var(--clr-grey-10);
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  width: 100%;
-  border-radius: var(--radius);
-}
+// .form-input {
+//   border: none;
+//   background: var(--clr-grey-10);
+//   font-size: 1rem;
+//   padding: 0.25rem 0.5rem;
+//   width: 100%;
+//   border-radius: var(--radius);
+// }
 .submit-btn {
   width: 100%;
   margin-top: 3rem;
