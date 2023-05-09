@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tooltip } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { enclasses } from "@/components/enrolled_class";
@@ -44,7 +44,7 @@ const StudentDashboard = () => {
 
   return (
     <div className={y.wrapper}>
-      <h2>Student Dashboard - Class List</h2>
+      {/* <h2>Student Dashboard - Class List</h2> */}
       <hr />
       <div className={y.icon_container}>
         <nav>
@@ -92,24 +92,29 @@ const StudentDashboard = () => {
               {enclasses.map((classItem) => (
                 <div className={y.class_box} key={classItem.classCode}>
                   <h4>{classItem.className}</h4>
-                  <p>
-                    <strong>Subject: </strong>
-                    {
-                      classes.find((c) => c.classCode === classItem.classCode)
-                        ?.subject
-                    }
-                  </p>
-                  <p>
-                    <strong>Description: </strong>
-                    {
-                      classes.find((c) => c.classCode === classItem.classCode)
-                        ?.description
-                    }
-                  </p>
-                  <p>
-                    <strong>ClassCode: </strong>
-                    {classItem.classCode}
-                  </p>
+                  <div className={y.subject}>
+                    <h1>
+                      {
+                        classes.find((c) => c.classCode === classItem.classCode)
+                          ?.subject
+                      }
+                    </h1>
+                  </div>
+                  <div className={y.description}>
+                    <p>
+                      <strong>Description: </strong>
+                      {
+                        classes.find((c) => c.classCode === classItem.classCode)
+                          ?.description
+                      }
+                    </p>
+                  </div>
+                  <div className={y.classCode}>
+                    <p>
+                      <strong>ClassCode: </strong>
+                      {classItem.classCode}
+                    </p>
+                  </div>
                   <button
                     onClick={() => handleSelectClass(classItem.classCode)}
                   >
@@ -141,6 +146,36 @@ const StudentDashboard = () => {
               </p>
             </div>
           </div>
+
+          <p>
+          <button
+              class="btn btn-primary"
+              type="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              onClick={() => new bootstrap.Collapse("#collapseExample")}
+            >
+              Button with data-target
+            </button>
+            <button
+              class="btn btn-primary"
+              type="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              onClick={() => new bootstrap.Collapse("#collapseExample")}
+            >
+              Button with data-target
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life
+              accusamus terry richardson ad squid. Nihil anim keffiyeh
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente
+              ea proident.
+            </div>
+          </div>
+          {/* 
           <ul>
             <h4>Assignments</h4>
             {selectedClass.assignments.map((assignment) => (
@@ -166,19 +201,22 @@ const StudentDashboard = () => {
             <h4>Quizzes</h4>
             {selectedClass.quizs.map((quiz) => (
               <li key={quiz.id}>
-                {/* <h6>{quiz.subjectCode} - {quiz.subjectName} </h6>
-              <h6>ClassCode : {quiz.classCode}</h6> */}
+               
                 <p>
                   {quiz.description} Link: <a href={quiz.link}>{quiz.link} </a>
                 </p>
               </li>
             ))}
           </ul>
+           */}
           <hr />
-              
-          <button onClick={() => setSelectedClass(null)}>
-            Back to Class List
-          </button>
+          <div className={y.Icon_container}>
+            <div className={y.icon}>
+              <button onClick={() => setSelectedClass(null)}>
+                <i class="bi bi-arrow-bar-left"></i>
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

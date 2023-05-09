@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
-    /* justify-content: center;
-    align-items: center;
+    justify-content: center;
+    /* align-items: center;
     position: relative; */
     background-color: #FDF8F3;
     left: 0%;
@@ -25,6 +25,20 @@
     
   } 
 
+  .Icon_container { 
+    position: fixed;
+    top: 50px;
+    right: 0;
+    /* add some padding to the icons */
+    padding: 1rem;
+    
+    /* use flexbox to align the icons */
+    display: flex;
+    justify-content: center;
+    
+  } 
+
+
   .icon_container a:not(:last-child) i {
     margin-right: 5rem;
   }
@@ -38,6 +52,16 @@
   text-decoration: none;
   color: #000;
   }
+
+  .b_icon {
+    border:1px hidden #ccc;
+    border-radius: 10px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: .5rem; 
+    text-decoration: none;
+    color: #000;
+    }
  
   .a_icon {
     border:1px outset #ccc;
@@ -56,7 +80,8 @@
   .box {
     margin-top: 5px;
     border: 1px none #ccc;
-    padding: 20px;
+    padding: 10px;
+    
     position: relative; 
   }
   
@@ -64,13 +89,34 @@
     margin-bottom: 10px;
   }
   
-  .class_box {
+ .class_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
     border: 1px hidden #ccc;
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 10px;
+    width: 1200px;
+    height: 200px;
+    margin-bottom: 30px;
     position: relative;
     background:aquamarine;
+  }
+
+  .class_box .subject {
+    align-self: flex-start;
+  }
+  
+  .class_box .description {
+   
+    align-self: flex-end;
+    margin-right: auto;
+  }
+  
+  .class_box .classCode {
+
+    margin-left: auto;
+
   }
   
   .class_box button {
@@ -83,3 +129,24 @@
     top: 10px;
     right: 10px;
   } 
+
+  
+  .class_box:nth-of-type(1) {
+    background-color: rgb(127, 255, 212);
+  }
+  
+  .class_box:nth-of-type(2) {
+    background-color: hsl(60, 50%, 50%);
+  }
+  
+  .class_box:nth-of-type(3) {
+    background-color: hsl(120, 50%, 50%);
+  }
+  
+  .class_box:nth-of-type(4) {
+    background-color: hsl(180, 50%, 50%);
+  }
+  
+  .class_box:nth-of-type(5) {
+    background-color: hsl(240, 50%, 50%);
+  }
