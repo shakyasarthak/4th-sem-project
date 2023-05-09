@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default async function handler(req, res) {
-    console.log("SMELLER")
     if (req.method === 'POST') {
       // Handle creating a new note
       const { title, content, email } = req.body
@@ -15,7 +14,8 @@ export default async function handler(req, res) {
       console.log(req.query.email)
       const notes = await prisma.note.findMany({
         where: {author: {email: req.query.email}}
-      })
+      }
+)
       res.status(200).json(notes)
     }
   }
