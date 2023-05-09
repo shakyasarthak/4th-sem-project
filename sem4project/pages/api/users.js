@@ -31,8 +31,9 @@
 
 // pages/api/users.js
 
-import prisma from "../../lib/prisma";
+
 import { getSession } from "next-auth/client";
+import prisma from './../../prisma/prisma';
 
 export default async function handle(req, res) {
   const session = await getSession({ req });
