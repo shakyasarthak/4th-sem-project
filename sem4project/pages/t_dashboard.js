@@ -9,6 +9,39 @@ import AddClassForm from "./addClass";
 import AddAssignmentForm1 from "./addAssignment1";
 import AddQuizForm1 from "./addQuiz1";
 import { quizs } from "@/components/quiz";
+import { getSession, useSession } from "next-auth/react";
+import prisma from './../prisma/prisma';
+
+
+//get the server side prop
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+        redirect: {
+            destination: '/loginChoice',
+            permanent: false,
+        },
+    }
+}
+  const {user} = session;
+
+  const status = await prisma.User.upsert({
+    create: {
+      email: user.email,
+      role: user.email.endsWith("@gmail.com") ? "teacher" : "student",
+    },
+    update: {},
+    where: {email: user.email || ""}
+  });
+  return {
+    props: { status },
+  };
+}
+
+
+
 
 function TeacherDashboards() {
     const [selectedClass, setSelectedClass] = useState(null);
@@ -61,7 +94,7 @@ function TeacherDashboards() {
           {selectedClass.classCode}
         </p>
         <ul>
-          <h4>Assignments</h4>
+          <h4>Assignment</h4>
           {selectedClass.assignments.map((assignment) => (
             <li key={assignment.id}>
               {assignment.title}

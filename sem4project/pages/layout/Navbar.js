@@ -11,6 +11,7 @@ import logo from '/public/logo.svg';
 
 const Navbar =() => {
   const { data: session, status } = useSession();
+  console.log(session)
 
   let userEmail = " ";
 
@@ -28,14 +29,18 @@ const Navbar =() => {
           {status ==  "unauthenticated" && <Link class ={x.menu} href ="/">HOME</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ='/About'>ABOUT</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ="/Contact">CONTACT</Link>}
-          {status == "authenticated" && <Link class = {x.menu} href="/About">naya about</Link>}
-          {userEmail.endsWith("@student.ku.edu.np") && <Link class={x.menu} href="/">{session.user.name}</Link>}
+          {status == "unauthenticated" && <Link class ={x.menu} href ="/addpastPaper">Pastpaper</Link>}
+          {userEmail.endsWith("@student.ku.edu.np") && <Link class ={x.menu} href ="/s_dashboard">DASHBOARD</Link>}
+          {userEmail.endsWith("@gmail.com") && <Link class ={x.menu} href ="/t_dashboard">DASHBOARD</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="#">PAST PAPER</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/notes">MY NOTES</Link>}
+          {userEmail.endsWith("@student.ku.edu.np") && <Link class={x.menu} href="#">{session.user.name}</Link>}
         </div>
         <div className={x.logins}>
         {status == "unauthenticated" && <Link href="/loginChoice">
             <button className={x.btn}>
               LOGIN
-            </button></Link>}
+            </button></Link>} 
             {status == "authenticated" && <Link href="/">
             <button className={x.btn} onClick={() => signOut({ callbackUrl: '/' })}>
               LOGOUT
@@ -96,4 +101,3 @@ export const NavbarAdmin =() => {
     </nav>
   );
 }
-

@@ -35,9 +35,21 @@ export const GlobalStyle=createGlobalStyle`body {
   }
   .note.new{
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .title{
+    border:none;
+    background-color:aquamarine;
+    font-size:1.5rem;
+  }
+  .title:focus{
+    outline:none;
   }
   textarea {
     border: none;
+    width:100%;
     resize: none;
     background-color: aquamarine;
   }
@@ -46,6 +58,7 @@ export const GlobalStyle=createGlobalStyle`body {
   }
   .save{
     background-color: yellow;
+    margin-left:90%;
     border: none;
     border-radius: 15px;
     padding: 5px 10px 5px 10px;
@@ -59,7 +72,7 @@ export const GlobalStyle=createGlobalStyle`body {
     /* margin-bottom: 10px; */
     border-radius: 20px;
     padding: 1rem;
-    min-height: 120px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -67,7 +80,7 @@ export const GlobalStyle=createGlobalStyle`body {
   }
   .note-footer{
     display: flex;
-    align-items: center;
+    align-items: right;
     justify-content: space-between;
   }
   
@@ -122,14 +135,14 @@ export const GlobalStyle=createGlobalStyle`body {
   color: var(--clr-grey-3);
   margin-bottom: 0.5rem;
 }
-.form-input {
-  border: none;
-  background: var(--clr-grey-10);
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  width: 100%;
-  border-radius: var(--radius);
-}
+// .form-input {
+//   border: none;
+//   background: var(--clr-grey-10);
+//   font-size: 1rem;
+//   padding: 0.25rem 0.5rem;
+//   width: 100%;
+//   border-radius: var(--radius);
+// }
 .submit-btn {
   width: 100%;
   margin-top: 3rem;

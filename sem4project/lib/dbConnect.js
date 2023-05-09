@@ -1,6 +1,6 @@
-// const mongoClient = require('./config/default')
-// const mongoose = require('mongoose')
-
+//const mongoClient = require('./config/default')
+//const mongoose = require('mongoose')
+// import mongoose, {mongo} from "mongoose";
 // // MongoDB
 
 // mongoose.connect(
@@ -12,7 +12,7 @@
 //   console.log('MongoDB database connection established successfully')
 // })
 
-// import mongoose, {mongo} from "mongoose";
+
 
 // const connectDB = async () => {
 //     if(mongoose.connections.readyState >=1) return;
@@ -21,29 +21,39 @@
     
 // };
 
-// export default connectDB;ClientSession
+// export default connectDB;//ClientSession
 
-import { MongoClient } from "mongodb";
+// import { MongoClient } from "mongodb";
 
-const URI = 'mongodb+srv://shakyasarthak:12345@users.n9c1vxh.mongodb.net/?retryWrites=true&w=majority'
+// const URI = 'mongodb+srv://shakyasarthak:12345@users.n9c1vxh.mongodb.net/?retryWrites=true&w=majority'
 
-const options ={}
+// const options ={}
 
-if(!URI) throw new Error("No URI found");
+// if(!URI) throw new Error("No URI found");
 
-let client = new MongoClient(URI, options)
-let clientPromise 
+// let client = new MongoClient(URI, options)
+// let clientPromise 
 
-if(process.env.NODE_ENV === "production"){
-    if(!global._mongoClient){
-        global._mongoClient = client.connect()
-        console.log("Connected to MongoDB");
-    }
+// if(process.env.NODE_ENV === "production"){
+//     if(!global._mongoClient){
+//         global._mongoClient = client.connect()
+//         console.log("Connected to MongoDB");
+//     }
 
-    clientPromise = global._mongoClientPromise
-}else{
-    clientPromise = client.connect()
-}
+//     clientPromise = global._mongoClientPromise
+// }else{
+//     clientPromise = client.connect()
+// }
 
-export default clientPromise
+// export default clientPromise
   
+import { PrismaClient } from '@prisma/client';
+
+const  prisma = new PrismaClient();
+
+export async function getServerSideProps() {
+  const allPosts = await prisma.post.findMany()
+  return {
+    props: { allPosts },
+  }
+}
