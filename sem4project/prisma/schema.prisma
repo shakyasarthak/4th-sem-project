@@ -9,44 +9,15 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+// create a model for user that has id and has a unique email id and this user are either the admin the teacher or the student
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
+  email     String   @id
   role      String
-  createdAt DateTime @default(now())
-
-  student   Student?
-  teacher   Teacher?
-  admin     Admin?
+  notes     Note[]
 }
 
-model Student {
-  id         Int      @id @default(autoincrement())
-  studentData String
-  userId     Int      @unique
-  user       User     @relation(fields: [userId], references: [id])
 
-  createdAt  DateTime @default(now())
-}
-
-model Teacher {
-  id         Int      @id @default(autoincrement())
-  teacherData String
-  userId     Int      @unique
-  user       User     @relation(fields: [userId], references: [id])
-
-  createdAt  DateTime @default(now())
-}
-
-model Admin {
-  id         Int      @id @default(autoincrement())
-  adminData  String
-  userId     Int      @unique
-  user       User     @relation(fields: [userId], references: [id])
-
-  createdAt  DateTime @default(now())
-}
 
 model Note {
   id        Int      @id @default(autoincrement())
@@ -54,4 +25,6 @@ model Note {
   content   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  author   User     @relation(fields: [authorEmail], references: [email])
+  authorEmail String
 }

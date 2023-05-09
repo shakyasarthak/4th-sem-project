@@ -11,6 +11,7 @@ import logo from '/public/logo.svg';
 
 const Navbar =() => {
   const { data: session, status } = useSession();
+  console.log(session)
 
   let userEmail = " ";
 
@@ -32,7 +33,7 @@ const Navbar =() => {
           {userEmail.endsWith("@student.ku.edu.np") && <Link class ={x.menu} href ="/s_dashboard">DASHBOARD</Link>}
           {userEmail.endsWith("@gmail.com") && <Link class ={x.menu} href ="/t_dashboard">DASHBOARD</Link>}
           {status == "authenticated" && <Link class = {x.menu} href="#">PAST PAPER</Link>}
-          {status == "authenticated" && <Link class = {x.menu} href="/notes_F">MY NOTES</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/notes">MY NOTES</Link>}
           {userEmail.endsWith("@student.ku.edu.np") && <Link class={x.menu} href="#">{session.user.name}</Link>}
         </div>
         <div className={x.logins}>

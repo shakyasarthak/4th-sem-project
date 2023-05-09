@@ -18,8 +18,8 @@ module.exports = async function handler(req, res) {
         const { name, email } = req.body;
         const newUser = await prisma.user.create({
             data: {
-                email: email,
-                name: name
+                email: email
+               
             }
         });
         return res.status(200).json(newUser);

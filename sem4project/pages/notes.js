@@ -4,6 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 // import {AiFillEdit} from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { GlobalStyle } from "@/components/Wrap";
+import {getSession} from "next-auth/react";
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -18,7 +19,8 @@ export default function Notes() {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get("/api/notes");
+      const session = await getSession()
+      const response = await axios.get("/api/notes?email=" + session.user.email);
       setNotes(response.data);
     } catch (error) {
       console.error(error);
@@ -26,8 +28,10 @@ export default function Notes() {
   };
 
   const createNote = async () => {
+    console.log("muji")
     try {
-      const response = await axios.post("/api/notes", { title, content });
+      const session = await getSession()
+      const response = await axios.post("/api/notes", { title, content, email: session.user.email });
       setNotes([...notes, response.data]);
       setTitle("");
       setContent("");
