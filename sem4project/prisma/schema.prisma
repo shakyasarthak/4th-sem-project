@@ -28,3 +28,60 @@ model Note {
   author   User     @relation(fields: [authorEmail], references: [email])
   authorEmail String
 }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// model User {
+//   id        Int      @id @default(autoincrement())
+//   email     String   @unique
+//   name      String?
+//   role      String
+//   createdAt DateTime @default(now())
+
+//   student   Student?
+//   teacher   Teacher?
+//   admin     Admin?
+// }
+
+// model Student {
+//   id         Int      @id @default(autoincrement())
+//   studentData String
+//   userId     Int      @unique
+//   user       User     @relation(fields: [userId], references: [id])
+
+//   createdAt  DateTime @default(now())
+// }
+
+// model Teacher {
+//   id         Int      @id @default(autoincrement())
+//   teacherData String
+//   userId     Int      @unique
+//   user       User     @relation(fields: [userId], references: [id])
+
+//   createdAt  DateTime @default(now())
+// }
+
+// model Admin {
+//   id         Int      @id @default(autoincrement())
+//   adminData  String
+//   userId     Int      @unique
+//   user       User     @relation(fields: [userId], references: [id])
+
+//   createdAt  DateTime @default(now())
+// }
+
+
+// model Note {
+//   id        Int      @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
