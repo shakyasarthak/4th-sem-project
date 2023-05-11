@@ -28,7 +28,7 @@ export default function Notes() {
   };
 
   const createNote = async () => {
-    console.log("muji")
+    console.log("test")
     try {
       const session = await getSession()
       const response = await axios.post("/api/notes", { title, content, email: session.user.email });
