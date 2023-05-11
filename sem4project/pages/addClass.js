@@ -87,6 +87,7 @@ const AddClassForm = () => {
                     class="form-control"
                     id="floatingInput"
                     placeholder="Enter New Class"
+                    
                     value={formClass2.className}
                     onChange={handleInputChange2}
                   />

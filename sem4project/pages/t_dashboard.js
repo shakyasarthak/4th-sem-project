@@ -11,6 +11,7 @@ import AddClassForm from "./addClass";
 import AddAssignmentForm1 from "./addAssignment1";
 import AddQuizForm1 from "./addQuiz1";
 import { quizs } from "@/components/quiz";
+import { deleteClass } from "../components/class";
 import "bootstrap/dist/css/bootstrap.min.css";
 import y from "styles/s_dashboard.module.css";
 import { getSession, useSession } from "next-auth/react";
@@ -45,12 +46,10 @@ export async function getServerSideProps(context) {
 
 function TeacherDashboards() {
   const [selectedClass, setSelectedClass] = useState(null);
-  let [classes1, setClasses] = useState(classes); // Initialize the state of `classes` with the `classes` array
+  let [classes1, setClasses1] = useState(classes); // Initialize the state of `classes` with the `classes` array
 
   const handleDeleteClass = (classCodeToDelete) => {
-    setClasses = classes1.filter(
-      (classItem) => classItem.classCode !== classCodeToDelete
-    );
+    deleteClass(classCodeToDelete);
   };
 
   const handleSelectClass = (classCode) => {

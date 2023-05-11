@@ -65,4 +65,8 @@ function addClasses(newClasses) {
   classes = [...classes, newClassesWithId];
 }
 
-export { classes, addClasses };
+function deleteClass(classCode) {
+  classes = classes.filter((c) => c.classCode !== classCode);
+}
+
+export { classes, addClasses, deleteClass };
