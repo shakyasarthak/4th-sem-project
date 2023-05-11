@@ -12,8 +12,7 @@ import { ST } from "next/dist/shared/lib/utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 import y from "styles/s_dashboard.module.css";
 import { getSession, useSession } from "next-auth/react";
-import prisma from './../prisma/prisma';
-
+import prisma from "./../prisma/prisma";
 
 //get the server side prop to create a student in the database
 export async function getServerSideProps(context) {
@@ -21,13 +20,13 @@ export async function getServerSideProps(context) {
 
   if (!session) {
     return {
-        redirect: {
-            destination: '/loginChoice',
-            permanent: false,
-        },
-    }
-}
-  const {user} = session;
+      redirect: {
+        destination: "/loginChoice",
+        permanent: false,
+      },
+    };
+  }
+  const { user } = session;
 
   const status = await prisma.User.upsert({
     create: {
@@ -35,13 +34,12 @@ export async function getServerSideProps(context) {
       role: user.email.endsWith("@student.ku.edu.np") ? "student" : "teacher",
     },
     update: {},
-    where: {email: user.email || ""}
+    where: { email: user.email || "" },
   });
   return {
     props: { status },
   };
 }
-
 
 const StudentDashboard = () => {
   const [selectedClass, setSelectedClass] = useState(null);
@@ -114,11 +112,23 @@ const StudentDashboard = () => {
           </ul>
         </nav>
       </div>
+
       {selectedClass === "enroll" && <AddEnroll />}
       {!selectedClass && (
         <div className={y.box}>
           <div className={y.box_header}>
-            <h3>My Classes</h3>
+            <h3
+              style={{
+                color: "midnightblue",
+                fontSize: "48px",
+                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)",
+                opacity: "textOpacity",
+                transform: "textTransform",
+                transition: "all 0.5s ease-out",
+              }}
+            >
+              My Classes
+            </h3>
             <ul>
               {enclasses.map((classItem) => (
                 <div className={y.class_box} key={classItem.classCode}>
@@ -161,24 +171,120 @@ const StudentDashboard = () => {
       {selectedClass && selectedClass !== "enroll" && (
         <div className={y.box}>
           <div className={y.box_header}>
-            <h3>{selectedClass.className}</h3>
-            <div className={y.class_box}>
-              <p>
-                <strong>Subject: </strong>
-                {selectedClass.subject}
-              </p>
-              <p>
-                <strong>Description: </strong>
-                {selectedClass.description}
-              </p>
-              <p>
-                <strong>Class Code: </strong>
-                {selectedClass.classCode}
-              </p>
+            <h3
+              style={{
+                color: "midnightblue",
+                fontSize: "48px",
+                textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)",
+                opacity: "textOpacity",
+                transform: "textTransform",
+                transition: "all 0.5s ease-out",
+              }}
+            >
+              {selectedClass.className}
+            </h3>
+            <div className={y.Class_box}>
+              <div className={y.subject}>
+                <p>
+                  <h1>{selectedClass.subject} </h1>
+                </p>
+              </div>
+              <div className={y.description}>
+                <p>
+                  <strong>Description: </strong>
+                  {selectedClass.description}
+                </p>
+              </div>
+              <div className={y.classCode}>
+                <p>
+                  <strong>Class Code: </strong>
+                  {selectedClass.classCode}
+                </p>
+              </div>
             </div>
           </div>
 
-          <p>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  <h4>Assignments</h4>
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <ul>
+                    <h4>Assignments are not fun !!</h4>
+                    {selectedClass.assignments.map((assignment) => (
+                      <li key={assignment.id}>
+                        {assignment.title}
+                        {assignment.description}
+                        {isAssignmentSubmitted(
+                          selectedClass.classCode,
+                          assignment.id
+                        ) ? (
+                          <div>Status: Submitted</div>
+                        ) : (
+                          <Sub_assignment
+                            classCode={selectedClass.classCode}
+                            assignmentId={assignment.id}
+                          />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#CollapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  <h4>Quizzes</h4>
+                </button>
+              </h2>
+              <div
+                id="CollapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <ul>
+                    <h4>Quizzes are fun !!</h4>
+                    {selectedClass.quizs.map((quiz) => (
+                      <li key={quiz.id}>
+                        <p>
+                          {quiz.description} Link:{" "}
+                          <a href={quiz.link}>{quiz.link} </a>
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <p>
           <button
               class="btn btn-primary"
               type="button"
@@ -186,26 +292,60 @@ const StudentDashboard = () => {
               aria-controls="collapseExample"
               onClick={() => new bootstrap.Collapse("#collapseExample")}
             >
-              Button with data-target
+           <h4>Assignments</h4>
             </button>
             <button
               class="btn btn-primary"
               type="button"
               aria-expanded="false"
-              aria-controls="collapseExample"
-              onClick={() => new bootstrap.Collapse("#collapseExample")}
+              aria-controls="CollapseExample"
+              onClick={() => new bootstrap.Collapse("#CollapseExample")}
             >
-              Button with data-target
+            <h4>Quizzes</h4>
             </button>
           </p>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente
-              ea proident.
+            <ul>
+            <h4>Assignments are not fun !!</h4>
+            {selectedClass.assignments.map((assignment) => (
+              <li key={assignment.id}>
+                {assignment.title}
+                {assignment.description}
+                {isAssignmentSubmitted(
+                  selectedClass.classCode,
+                  assignment.id
+                ) ? (
+                  <div>Status: Submitted</div>
+                ) : (
+                  <Sub_assignment
+                    classCode={selectedClass.classCode}
+                    assignmentId={assignment.id}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
             </div>
           </div>
+
+          <div class="collapse" id="CollapseExample">
+            <div class="card card-body">
+            <ul>
+            <h4>Quizzes is fun !!</h4>
+            {selectedClass.quizs.map((quiz) => (
+              <li key={quiz.id}>
+               
+                <p>
+                  {quiz.description} Link: <a href={quiz.link}>{quiz.link} </a>
+                </p>
+              </li>
+            ))}
+          </ul>
+            </div>
+          </div>
+ */}
+
           {/* 
           <ul>
             <h4>Assignments</h4>
@@ -242,7 +382,7 @@ const StudentDashboard = () => {
            */}
           <hr />
           <div className={y.Icon_container}>
-            <div className={y.icon}>
+            <div className={y.b_icon}>
               <button onClick={() => setSelectedClass(null)}>
                 <i class="bi bi-arrow-bar-left"></i>
               </button>

@@ -1,25 +1,24 @@
-import { useState } from 'react';
-import { nanoid } from 'nanoid';
-import { quizs } from '../components/quiz'
-import React from 'react';
-import { GlobalStyle } from '@/components/Wrap';
-import ViewAllQuiz from '../components/viewallQuiz';
+import { useState } from "react";
+import { nanoid } from "nanoid";
+import { quizs } from "../components/quiz";
+import React from "react";
+import { GlobalStyle } from "@/components/Wrap";
+import ViewAllQuiz from "../components/viewallQuiz";
 
-const AddQuizForm1 = ({classCode}) => {
-  
+const AddQuizForm1 = ({ classCode }) => {
   const [formQuiz, setFormQuiz] = useState({
     classCode: classCode,
-    subjectName: '',
-    subjectCode: '',
-    link: '',
-    description: ''
+    subjectName: "",
+    subjectCode: "",
+    link: "",
+    description: "",
   });
   const [showForm4, setShowForm4] = useState(false);
 
   function handleInputChange1(event) {
     setFormQuiz({
       ...formQuiz,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -29,73 +28,115 @@ const AddQuizForm1 = ({classCode}) => {
     const newQuiz = {
       id: nanoid(),
       classCode: classCode,
-      ...formQuiz
+      ...formQuiz,
     };
     quizs.push(newQuiz);
     setFormQuiz({
       classCode: classCode,
-      subjectName: '',
-      subjectCode: '',
-      link: '',
-      description: ''
+      subjectName: "",
+      subjectCode: "",
+      link: "",
+      description: "",
     });
     setShowForm4(false);
   }
 
   return (
     <>
-      <GlobalStyle/>
-      <section className='quiz quiz-small'>
-        <h1> Quiz </h1>
-        <div className="button-container">
-          <button className="add-button" onClick={() => setShowForm4(true)}>Add Quiz</button>
+      <GlobalStyle />
+      <section className="quiz quiz-small">
+        {/* <h1> Quiz </h1> */}
+        <div>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            className="add-button"
+            onClick={() => setShowForm4(true)}
+          >
+            <i class="bi bi-plus-lg"></i>Add Quiz
+          </button>
           {showForm4 && (
             <div className="form-container">
-              <form onSubmit={handleSubmit1} className='setup-form'>
-                <div className='form-control'>
-                  <label>
-                    Class Code:
-                    <input type="text" name="classCode" value={classCode} readOnly  />
-                  </label>
+              <form onSubmit={handleSubmit1} className="setup-form">
+                <div className="form-floating mb-3 mt-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    value={classCode}
+                    readOnly
+                  />
+                  <label>Class Code:</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Subject:
-                    <input type="text" name="subjectName" value={formQuiz.subjectName} onChange={handleInputChange1}  />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Subject"
+                    value={formQuiz.subjectName}
+                    onChange={handleInputChange1}
+                  />
+                  <label for="floatingInput">Subject</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Subject Code :
-                    <input type="text" name="subjectCode" value={formQuiz.subjectCode} onChange={handleInputChange1}  />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="SubjectCode"
+                    value={formQuiz.subjectCode}
+                    onChange={handleInputChange1}
+                  />
+                  <label for="floatingInput">Subject Code</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Year :
-                    <input type="text" name="year" value={formQuiz.year} onChange={handleInputChange1} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Year"
+                    value={formQuiz.year}
+                    onChange={handleInputChange1}
+                  />
+                  <label for="floatingInput">Year</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Link :
-                    <input type="url" name="link" value={formQuiz.link} onChange={handleInputChange1} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Link"
+                    value={formQuiz.link}
+                    onChange={handleInputChange1}
+                  />
+                  <label for="floatingInput">Link</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Description
-                    <input type="text" name="description" value={formQuiz.description} onChange={handleInputChange1} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Description"
+                    value={formQuiz.description}
+                    onChange={handleInputChange1}
+                  />
+                  <label for="floatingInput">Description</label>
                 </div>
-                <button type="submit" className='submit-btn'>Add </button>
+                <button
+                  class="btn btn-outline-primary"
+                  type="submit"
+                  className="submit-btn"
+                >
+                  Add{" "}
+                </button>
               </form>
             </div>
           )}
         </div>
       </section>
       <div className="container">
-        <ViewAllQuiz/>
+        <ViewAllQuiz />
       </div>
     </>
   );

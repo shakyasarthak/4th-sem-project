@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import { nanoid } from 'nanoid';
-import { assignments } from '../components/assignment'
-import React from 'react';
-import { GlobalStyle } from '@/components/Wrap';
-import ViewAllAssigns from '../components/viewallAssignment';
-import { getSession, useSession } from "next-auth/react";
-import prisma from './../prisma/prisma';
+import { useState } from "react";
+import { nanoid } from "nanoid";
+import { assignments } from "../components/assignment";
+import React from "react";
+import { GlobalStyle } from "@/components/Wrap";
 
+import y from "styles/s_dashboard.module.css";
+import ViewAllAssigns from "../components/viewallAssignment";
+import { getSession, useSession } from "next-auth/react";
+import prisma from "./../prisma/prisma";
 
 //get the server side prop
 export async function getServerSideProps(context) {
@@ -14,13 +15,13 @@ export async function getServerSideProps(context) {
 
   if (!session) {
     return {
-        redirect: {
-            destination: '/loginChoice',
-            permanent: false,
-        },
-    }
-}
-  const {user} = session;
+      redirect: {
+        destination: "/loginChoice",
+        permanent: false,
+      },
+    };
+  }
+  const { user } = session;
 
   const status = await prisma.User.upsert({
     create: {
@@ -28,7 +29,7 @@ export async function getServerSideProps(context) {
       role: user.email.endsWith("@gmail.com") ? "teacher" : "student",
     },
     update: {},
-    where: {email: user.email || ""}
+    where: { email: user.email || "" },
   });
   return {
     props: { status },
@@ -38,14 +39,14 @@ export async function getServerSideProps(context) {
 const AddAssignmentForm1 = ({ classCode }) => {
   const [formAssignment, setFormAssignment] = useState({
     classCode: classCode,
-    assignmentId:'',
-    subjectName: '',
-    subjectCode: '',
-    year: '',
-    link: '',
-    deadline: ''
+    assignmentId: "",
+    subjectName: "",
+    subjectCode: "",
+    year: "",
+    link: "",
+    deadline: "",
   });
- const [assignmentno,setAssignmentno]=useState('')
+  const [assignmentno, setAssignmentno] = useState("");
   const [showForm, setShowForm] = useState(false);
 
   function handleAssignmentnoChange(event) {
@@ -54,27 +55,27 @@ const AddAssignmentForm1 = ({ classCode }) => {
   function handleInputChange(event) {
     setFormAssignment({
       ...formAssignment,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-       const assignno =classCode+"-"+assignmentno;
+    const assignno = classCode + "-" + assignmentno;
     const newAssignment = {
       assignmentId: assignno,
-      ...formAssignment
+      ...formAssignment,
     };
 
     assignments.push(newAssignment);
 
     setFormAssignment({
       classCode: classCode,
-      subjectName: '',
-      subjectCode: '',
-      year: '',
-      link: '',
-      deadline: ''
+      subjectName: "",
+      subjectCode: "",
+      year: "",
+      link: "",
+      deadline: "",
     });
 
     setShowForm(false);
@@ -82,55 +83,105 @@ const AddAssignmentForm1 = ({ classCode }) => {
 
   return (
     <>
-      <GlobalStyle/>
-      <section className='quiz quiz-small'>
+      <GlobalStyle />
+      <section className="quiz quiz-small">
         {/* <h1>Assignment</h1> */}
-        <div className="button-container">
-          <button className="add-button" onClick={() => setShowForm(true)}>Assignment</button>
+        <div>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            className="add-button"
+            onClick={() => setShowForm(true)}
+          >
+            <i class="bi bi-plus-lg"></i>Assignment
+          </button>
           {showForm && (
             <div className="form-container">
-              <form onSubmit={handleSubmit} className='setup-form'>
-                <div className='form-control'>
-                <label>
-                    Assignment No :
-                    <input type="text" name="assignmentno" value={assignmentno} onChange={handleAssignmentnoChange} />
-                  </label>
-                  <label>
-                    Class Code:
-                    <input type="text" name="classCode" value={classCode} readOnly />
-                  </label>
+              <form onSubmit={handleSubmit} className="setup-form">
+                <div className="form-floating mb-3 mt-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Enter Assignment No"
+                    value={assignmentno}
+                    onChange={handleAssignmentnoChange}
+                  />
+                  <label for="floatingInput">Assignment No</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Subject:
-                    <input type="text" name="subjectName" value={formAssignment.subjectName} onChange={handleInputChange} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    value={classCode}
+                    readOnly
+                  />
+                  <label for="floatingInput">Class Code:</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Subject Code:
-                    <input type="text" name="subjectCode" value={formAssignment.subjectCode} onChange={handleInputChange} />
-                  </label>
+
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Subject"
+                    value={formAssignment.subjectName}
+                    onChange={handleInputChange}
+                  />
+                  <label for="floatingInput">Subject</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Year:
-                    <input type="text" name="year" value={formAssignment.year} onChange={handleInputChange} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Subject Code"
+                    value={formAssignment.subjectCode}
+                    onChange={handleInputChange}
+                  />
+                  <label for="floatingInput">Subject Code</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Link:
-                    <input type="url" name="link" value={formAssignment.link} onChange={handleInputChange} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Year"
+                    value={formAssignment.year}
+                    onChange={handleInputChange}
+                  />
+                  <label for="floatingInput">Year</label>
                 </div>
-                <div className='form-control'>
-                  <label>
-                    Description:
-                    <input type="text" name="description" value={formAssignment.description} onChange={handleInputChange} />
-                  </label>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Link"
+                    value={formAssignment.link}
+                    onChange={handleInputChange}
+                  />
+                  <label for="floatingInput">Link</label>
                 </div>
-                <button type="submit" className='submit-btn'>Add</button>
+                <div className="form-floating mb-3 ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Description"
+                    value={formAssignment.description}
+                    onChange={handleInputChange}
+                  />
+                  <label for="floatingInput">Description</label>
+                </div>
+                <button
+                  class="btn btn-outline-primary"
+                  type="submit"
+                  className="submit-btn"
+                >
+                  Add
+                </button>
               </form>
             </div>
           )}

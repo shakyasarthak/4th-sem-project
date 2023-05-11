@@ -1,5 +1,6 @@
 import { GlobalStyleComponent, createGlobalStyle } from "styled-components";
-export const GlobalStyle=createGlobalStyle`body {
+export const GlobalStyle=createGlobalStyle`
+body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -126,6 +127,7 @@ export const GlobalStyle=createGlobalStyle`body {
   margin-bottom: 2rem;
 }
 .form-control {
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
 }
 .form-control label {
