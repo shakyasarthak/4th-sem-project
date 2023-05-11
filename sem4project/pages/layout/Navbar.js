@@ -29,13 +29,25 @@ const Navbar =() => {
           {status ==  "unauthenticated" && <Link class ={x.menu} href ="/">HOME</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ='/About'>ABOUT</Link>}
           {status == "unauthenticated" && <Link class ={x.menu} href ="/Contact">CONTACT</Link>}
-          {status == "unauthenticated" && <Link class ={x.menu} href ="/addpastPaper">Pastpaper</Link>}
-          {userEmail.endsWith("@student.ku.edu.np") && <Link class ={x.menu} href ="/s_dashboard">DASHBOARD</Link>}
+          {/* {status == "unauthenticated" && <Link class ={x.menu} href ="/addpastPaper">Pastpaper</Link>} */}
+          
+          {/* {userEmail.endsWith("@student.ku.edu.np") && <Link class ={x.menu} href ="/s_dashboard">DASHBOARD</Link>}
           {userEmail.endsWith("@gmail.com") && <Link class ={x.menu} href ="/t_dashboard">DASHBOARD</Link>}
-          {status == "authenticated" && <Link class = {x.menu} href="#">PAST PAPER</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/addpastPaper">PAST PAPER</Link>}
           {status == "authenticated" && <Link class = {x.menu} href="/notes">MY NOTES</Link>}
-          {userEmail.endsWith("@student.ku.edu.np") && <Link class={x.menu} href="#">{session.user.name}</Link>}
+          {userEmail.endsWith("@student.ku.edu.np") && <Link href="">WELCOME {session.user.name}</Link>}
+          {userEmail.endsWith("@gmail.com") && <Link href="">WELCOME {session.user.name}</Link>}
+         */}
         </div>
+         <div className={x.Nav_bar}>
+         {userEmail.endsWith("@student.ku.edu.np") && <Link class ={x.menu} href ="/s_dashboard">DASHBOARD</Link>}
+          {userEmail.endsWith("@gmail.com") && <Link class ={x.menu} href ="/t_dashboard">DASHBOARD</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/addpastPaper">PAST PAPER</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/notes">MY NOTES</Link>}
+          {userEmail.endsWith("@student.ku.edu.np") && <Link href="">WELCOME {session.user.name}</Link>}
+          {userEmail.endsWith("@gmail.com") && <Link href="">WELCOME {session.user.name}</Link>}
+
+         </div>
         <div className={x.logins}>
         {status == "unauthenticated" && <Link href="/loginChoice">
             <button className={x.btn}>
