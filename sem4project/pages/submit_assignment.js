@@ -53,15 +53,14 @@ const Sub_assignment = ({ classCode, assignmentId }) => {
 
   return (
     <div>
-      <h1>Submit Assignment</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter Submission Link:
-          <input type="url" value={slink} onChange={handleInputChange} />
+  
+      <form class="form-floating-sm mb-0.5" onSubmit={handleSubmit}>
+      <input type="url"  class="form-control" id="floatingInputValue" placeholder="Submission Link" value={slink} onChange={handleInputChange} name="submission_id" />
+          <label for="floatingInputValue"> 
         </label>
-        <button type="submit">Add Submission</button>
+        </form>
+      <button class="btn btn-outline-primary" type="submit">Add Submission</button>
         {errorMessage && <div>{errorMessage}</div>}
-      </form>
     </div>
   );
 };

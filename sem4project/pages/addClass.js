@@ -72,7 +72,7 @@ const AddClassForm = () => {
           <button
             type="button"
             class="btn btn-outline-primary"
-            className="add-button"
+         
             onClick={() => setShowForm2(true)}
           >
             {" "}
@@ -89,6 +89,7 @@ const AddClassForm = () => {
                     placeholder="Enter New Class"
                     value={formClass2.className}
                     onChange={handleInputChange2}
+                    name="className"
                   />
                   <label for="floatingInput">ClassName</label>
                 </div>
@@ -100,6 +101,7 @@ const AddClassForm = () => {
                     placeholder="Enter New SubjectName"
                     value={formClass2.subject}
                     onChange={handleInputChange2}
+                    name = "subject"
                   />
                   <label for="floatingInput">Subject</label>
                 </div>
@@ -111,6 +113,7 @@ const AddClassForm = () => {
                     placeholder="Enter Description"
                     value={formClass2.description}
                     onChange={handleInputChange2}
+                    name = "description"
                   />
                   <label for="floatingInput">Description</label>
                 </div>
@@ -122,6 +125,7 @@ const AddClassForm = () => {
                     placeholder="Enter New Class"
                     value={formClass2.classCode}
                     onChange={handleInputChange2}
+                    name = "classCode"
                   />
                   <label for="floatingInput">ClassCode</label>
                 </div>
@@ -129,7 +133,7 @@ const AddClassForm = () => {
                 <button
                   class="btn btn-outline-primary"
                   type="submit"
-                  className="submit-btn"
+               
                 >
                   Add{" "}
                 </button>

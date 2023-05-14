@@ -9,7 +9,7 @@ let assignments = [
         subjectCode: 'Spring',
         year: '2022',
         link: 'https://example.com/mathematics-spring-2022.pdf',
-         description: 'lore fdhefh shvr csfy ycrfv syshgfv',
+         description: 'Assignment -1',
       },
       {
         assignmentId:'CS101-1',
@@ -27,7 +27,7 @@ let assignments = [
         subjectCode: 'Spring',
         year: '2021',
         link: 'https://example.com/mathematics-spring-2022.pdf',
-        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
+        description: 'Assignment -2',
       },
       {
         assignmentId: 'CS101-2',
