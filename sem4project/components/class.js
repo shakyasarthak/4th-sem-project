@@ -13,7 +13,7 @@ let classes= [
  id: nanoid(),
  className: 'Cs Batch 2021 MATH 207' ,
   subject: 'Statistics ',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing el vehicula erra maximus.',
+  description: 'This course is designed to provide students with a foundation in statistical concepts and methods.',
   classCode: 'hhgdjnh45',
     },
     {

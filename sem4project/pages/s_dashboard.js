@@ -225,10 +225,11 @@ const StudentDashboard = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <ul>
-                    <h4>Assignments are not fun !!</h4>
+                
+                    <h4 style = {{color:' grey'}}>View and submit your assignments here</h4>
+                    <ul class="list-group">
                     {selectedClass.assignments.map((assignment) => (
-                      <li key={assignment.id}>
+                      <li class="list-group-item" key={assignment.id}>
                         {assignment.title}
                         {assignment.description}
                         {isAssignmentSubmitted(
@@ -247,6 +248,7 @@ const StudentDashboard = () => {
                   </ul>
                 </div>
               </div>
+              
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
@@ -268,10 +270,11 @@ const StudentDashboard = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <ul>
-                    <h4>Quizzes are fun !!</h4>
+                  
+                    <h4 style = {{color:' grey'}}>View and submit your Quizzes here</h4>
+                    <ul class="list-group">
                     {selectedClass.quizs.map((quiz) => (
-                      <li key={quiz.id}>
+                      <li class="list-group-item" key={quiz.id}>
                         <p>
                           {quiz.description} Link:{" "}
                           <a href={quiz.link}>{quiz.link} </a>

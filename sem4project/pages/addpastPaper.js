@@ -41,7 +41,7 @@ const AddpastPaperForm = () => {
     <Wrapper>
       <section >
         <div className="button-container">
-          <button  onClick={() => setShowForm(true)}>
+          <button    class="btn btn-primary" onClick={() => setShowForm(true)}>
             Add Pastpaper
           </button>
           {showForm && (

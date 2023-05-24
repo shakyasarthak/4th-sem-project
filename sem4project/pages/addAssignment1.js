@@ -45,6 +45,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
     year: "",
     link: "",
     deadline: "",
+    description: "",
   });
   const [assignmentno, setAssignmentno] = useState("");
   const [showForm, setShowForm] = useState(false);
@@ -90,10 +91,10 @@ const AddAssignmentForm1 = ({ classCode }) => {
           <button
             type="button"
             class="btn btn-outline-primary"
-            className="add-button"
+           
             onClick={() => setShowForm(true)}
           >
-            <i class="bi bi-plus-lg"></i>Assignment
+            <i class="bi bi-plus-lg"></i> Assignment
           </button>
           {showForm && (
             <div className="form-container">
@@ -106,6 +107,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     placeholder="Enter Assignment No"
                     value={assignmentno}
                     onChange={handleAssignmentnoChange}
+                    name= "assignmentId"
                   />
                   <label for="floatingInput">Assignment No</label>
                 </div>
@@ -116,6 +118,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     id="floatingInput"
                     value={classCode}
                     readOnly
+                    name= "classCode"
                   />
                   <label for="floatingInput">Class Code:</label>
                 </div>
@@ -128,6 +131,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     placeholder="Subject"
                     value={formAssignment.subjectName}
                     onChange={handleInputChange}
+                    name = "subjectName"
                   />
                   <label for="floatingInput">Subject</label>
                 </div>
@@ -139,6 +143,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     placeholder="Subject Code"
                     value={formAssignment.subjectCode}
                     onChange={handleInputChange}
+                    name = "subjectCode"
                   />
                   <label for="floatingInput">Subject Code</label>
                 </div>
@@ -150,6 +155,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     placeholder="Year"
                     value={formAssignment.year}
                     onChange={handleInputChange}
+                    name = "year"
                   />
                   <label for="floatingInput">Year</label>
                 </div>
@@ -161,6 +167,7 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     placeholder="Link"
                     value={formAssignment.link}
                     onChange={handleInputChange}
+                    name="link"
                   />
                   <label for="floatingInput">Link</label>
                 </div>
@@ -172,13 +179,14 @@ const AddAssignmentForm1 = ({ classCode }) => {
                     placeholder="Description"
                     value={formAssignment.description}
                     onChange={handleInputChange}
+                    name="description"
                   />
                   <label for="floatingInput">Description</label>
                 </div>
                 <button
                   class="btn btn-outline-primary"
                   type="submit"
-                  className="submit-btn"
+         
                 >
                   Add
                 </button>
