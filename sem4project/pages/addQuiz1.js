@@ -63,6 +63,7 @@ const AddQuizForm1 = ({ classCode }) => {
                     type="text"
                     class="form-control"
                     id="floatingInput"
+                    name="classCode"
                     value={classCode}
                     readOnly
                   />
@@ -74,6 +75,7 @@ const AddQuizForm1 = ({ classCode }) => {
                     class="form-control"
                     id="floatingInput"
                     placeholder="Subject"
+                    name="subjectName"
                     value={formQuiz.subjectName}
                     onChange={handleInputChange1}
                   />
@@ -85,6 +87,7 @@ const AddQuizForm1 = ({ classCode }) => {
                     class="form-control"
                     id="floatingInput"
                     placeholder="SubjectCode"
+                    name="subjectCode"
                     value={formQuiz.subjectCode}
                     onChange={handleInputChange1}
                   />
@@ -96,6 +99,7 @@ const AddQuizForm1 = ({ classCode }) => {
                     class="form-control"
                     id="floatingInput"
                     placeholder="Year"
+                    name="year"
                     value={formQuiz.year}
                     onChange={handleInputChange1}
                   />
@@ -107,6 +111,7 @@ const AddQuizForm1 = ({ classCode }) => {
                     class="form-control"
                     id="floatingInput"
                     placeholder="Link"
+                    name="link"
                     value={formQuiz.link}
                     onChange={handleInputChange1}
                   />
@@ -118,6 +123,7 @@ const AddQuizForm1 = ({ classCode }) => {
                     class="form-control"
                     id="floatingInput"
                     placeholder="Description"
+                    name="description"
                     value={formQuiz.description}
                     onChange={handleInputChange1}
                   />

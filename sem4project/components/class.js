@@ -6,7 +6,7 @@ let classes= [
         id: nanoid(),
         className: 'Cs Batch 2020 MCSC 207' ,
   subject: 'Numerical Methods ',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing el vehicula erra maximus.',
+  description: 'This course focuses on developing and applying mathematical algorithms and techniques to solve complex problems using approximate numerical solutions.',
   classCode: 'nxfirhjdj45',
     },
 {
