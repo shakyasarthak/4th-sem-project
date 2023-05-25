@@ -9,7 +9,7 @@ let assignments = [
         subjectCode: 'Spring',
         year: '2022',
         link: 'https://example.com/mathematics-spring-2022.pdf',
-         description: 'Assignment -1',
+         description: 'Assignment for 1st Chapter',
       },
       {
         assignmentId:'CS101-1',
@@ -18,26 +18,28 @@ let assignments = [
         subjectCode: 'Fall',
         year: '2021',
         link: 'https://example.com/computer-science-fall-2021.pdf',
-        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
+        description: 'Assignment for 1st Chapter',
       },
-      {
-        assignmentId:"MATH202-2",
-        classCode: 'MATH202',
-        subjectName: 'Mathematics',
-        subjectCode: 'Spring',
-        year: '2021',
-        link: 'https://example.com/mathematics-spring-2022.pdf',
-        description: 'Assignment -2',
-      },
-      {
-        assignmentId: 'CS101-2',
-        classCode: 'CS101',
-        subjectName: 'Computer Science',
-        subjectCode: 'Spring',
-        year: '2021',
-        link: 'https://example.com/computer-science-fall-2021.pdf',
-        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
-      },
+      // {
+      //   assignmentId:"MATH202-2",
+      //   classCode: 'MATH202',
+      //   subjectName: 'Mathematics',
+      //   subjectCode: 'Spring',
+      //   year: '2021',
+      //   link: 'https://example.com/mathematics-spring-2022.pdf',
+      //   description: 'Assignment for 2nd Chapter',
+      // },
+
+      // {
+      //   assignmentId: 'CS101-2',
+      //   classCode: 'CS101',
+      //   subjectName: 'Computer Science',
+      //   subjectCode: 'Spring',
+      //   year: '2021',
+      //   link: 'https://example.com/computer-science-fall-2021.pdf',
+      //   description: 'Assignment for 2nd Chapter',
+      // },
+
       {
         assignmentId: 'CS101-3',
         classCode: 'CS101',
@@ -45,7 +47,7 @@ let assignments = [
         subjectCode: 'Fall',
         year: '2022',
         link: 'https://example.com/physics-fall-2022.pdf',
-        description: 'lore fdhefh shvr csfy ycrfv syshgfv',
+        description: 'Assignment for 1st Chapter',
       }
 ];
 

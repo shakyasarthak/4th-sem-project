@@ -91,7 +91,7 @@ export default function Home() {
     formData.append('upload_preset', 'Assignment');
     formData.append('resource_type', 'auto');
 
-    const data = await fetch('https://api.cloudinary.com/v1_1/dtordrjof/raw/upload', {
+    const data = await fetch('https://api.cloudinary.com/v1_1/dtordrjof/pdf/upload', {
       method: 'POST',
       body: formData
     }).then(r => r.json());

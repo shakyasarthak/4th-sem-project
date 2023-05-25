@@ -172,21 +172,21 @@ const AddAssignmentForm1 = ({ classCode }) => {
                   <label for="floatingInput">Link</label>
                 </div>
                 <div className="form-floating mb-3 ">
-                  <input
-                    type="text"
+                  <textarea
+                    
                     class="form-control"
                     id="floatingInput"
                     placeholder="Description"
                     value={formAssignment.description}
                     onChange={handleInputChange}
                     name="description"
-                  />
+                  ></textarea>
                   <label for="floatingInput">Description</label>
                 </div>
                 <button
                   class="btn btn-outline-primary"
                   type="submit"
-         
+                  // onClick={() => handleSubmit()}
                 >
                   Add
                 </button>

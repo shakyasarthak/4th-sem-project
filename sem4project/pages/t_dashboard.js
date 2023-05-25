@@ -165,14 +165,20 @@ function TeacherDashboards() {
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <h4>Assignments are not fun!!</h4>
+                  {/* <h4>Assignments are not fun!!</h4> */}
                   <ul class="list-group">
+        
                     {selectedClass.assignments.map((assignment) => (
+                     
                       <li class="list-group-item" key={assignment.id}>
                         {assignment.title}
                         {assignment.description}
+                     <br/>
+                        <a href={assignment.link} target="blank">{assignment.link} </a>
                       </li>
+                     
                     ))}
+                
                   </ul>
                 </div>
               </div>
@@ -197,7 +203,7 @@ function TeacherDashboards() {
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <h4>Quizzes are fun!!</h4>
+                  {/* <h4>Quizzes are fun!!</h4> */}
                   <ul class="list-group">
                     {selectedClass.quizs.map((quiz) => (
                       <li class="list-group-item" key={quiz.id}>
@@ -205,7 +211,7 @@ function TeacherDashboards() {
                           {quiz.subjectCode} - {quiz.subjectName}
                         </h6>
                         <p>
-                          Link: <a href={quiz.link}>{quiz.description} </a>
+                          Link: <a href={quiz.link} target="blank">{quiz.description} </a>
                         </p>
                       </li>
                     ))}
@@ -215,7 +221,7 @@ function TeacherDashboards() {
             </div>
           </div>
 
-          {/* <h4>Assignment</h4>
+         {/* <h4>Assignment</h4>
 
             <ul class="list-group">
               {selectedClass.assignments.map((assignment) => (
@@ -227,9 +233,9 @@ function TeacherDashboards() {
             </ul>
 
             
-            <h4>Quizzes</h4>
-            
-           */}
+            <h4>Quizzes</h4> */}
+           
+           
           <div className={y.test}>
             <nav>
               <ul class="list-group list-group-horizontal">

@@ -46,7 +46,7 @@ const Sub_assignment = ({ classCode, assignmentId }) => {
       <div>
         {/* <h6>Assignment already submitted</h6> */}
         <p>Status: {existingSubmission.status}</p>
-        <p>Submission link: {existingSubmission.slink}</p>
+        <p>Submission link:<a href ={existingSubmission.slink} target ="blank"> {existingSubmission.slink}</a></p>
       </div>
     );
   }
@@ -58,8 +58,9 @@ const Sub_assignment = ({ classCode, assignmentId }) => {
       <input type="url"  class="form-control" id="floatingInputValue" placeholder="Submission Link" value={slink} onChange={handleInputChange} name="submission_id" />
           <label for="floatingInputValue"> 
         </label>
+        
         </form>
-      <button class="btn btn-outline-primary" type="submit">Add Submission</button>
+        <button class="btn btn-outline-primary" onClick={handleSubmit} type="submit">Add Submission</button>
         {errorMessage && <div>{errorMessage}</div>}
     </div>
   );
