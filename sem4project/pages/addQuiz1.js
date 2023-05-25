@@ -50,7 +50,7 @@ const AddQuizForm1 = ({ classCode }) => {
           <button
             type="button"
             class="btn btn-outline-primary"
-            className="add-button"
+           
             onClick={() => setShowForm4(true)}
           >
             <i class="bi bi-plus-lg"></i>Add Quiz
@@ -126,9 +126,9 @@ const AddQuizForm1 = ({ classCode }) => {
                 <button
                   class="btn btn-outline-primary"
                   type="submit"
-                  className="submit-btn"
+                 
                 >
-                  Add{" "}
+                  Add
                 </button>
               </form>
             </div>

@@ -37,6 +37,8 @@ const Wrapper = styled.section`
   }
   .btn-container {
     display: grid;
+    justify-content: center;
+    
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
     align-self: flex-end;
