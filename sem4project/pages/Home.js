@@ -68,6 +68,7 @@ function Home() {
 
   return (
     <>
+       
       <div className={y.mid_home_wrapper}>
         <div style={{ opacity: imageOpacity, transform: imageTransform, transition: 'all 0.5s ease-out' }}>
           <Image src={board} alt="" height="500" width="650" quality={100} />
@@ -79,6 +80,7 @@ function Home() {
           </p>
         </div>
       </div>
+      
       {/* <div className={y.bottom_home_wrapper}>
         this is bottom of the home page
       </div> */}

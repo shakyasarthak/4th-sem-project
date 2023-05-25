@@ -8,7 +8,6 @@ import {SessionProvider} from 'next-auth/react';
 import Image from 'next/image';
 import logo from '/public/logo.svg';
 
-
 const Navbar =() => {
   const { data: session, status } = useSession();
   console.log(session)
@@ -66,50 +65,3 @@ const Navbar =() => {
 
 export default Navbar;
 
-export const NavbarUser =() => {
-  return (
-    <nav>
-      <div className={x.nav_bar_wrapper}>
-        <div className={x.logo}>
-        <Image src={logo} alt="" width='100' />
-        </div>
-        <div className={x.nav_bar}>
-          <Link class ={x.menu} href ="/">HOME</Link>
-          <Link class ={x.menu} href ='/About'>ABOUT</Link>
-          <Link class ={x.menu} href ="/Contact">CONTACT</Link>
-        </div>
-        <div className={x.logins}>
-        <Link href="/loginChoice">
-            <button className={x.btn}>
-              LOGIN
-            </button></Link>
-         
-        </div>
-    </div>
-    </nav>
-  );
-}
-
-export const NavbarAdmin =() => {
-  return (
-    <nav>
-      <div className={x.nav_bar_wrapper}>
-        <div className={x.logo}>
-        <Image src={logo} alt="" width='100' />
-        </div>
-        <div className={x.nav_bar}>
-          <Link class ={x.menu} href ="/">ADD PAPERS</Link>
-          <Link class ={x.menu} href ='#'>ADD USER</Link>
-          <Link class ={x.menu} href ="#">STAT</Link>
-        </div>
-        <div className={x.logins}>
-        <Link href="/Home">
-            <button className={x.btn}>
-              LOGOUT
-            </button></Link>
-         
-        </div>
-    </div>
-    </nav>
-  );
-}

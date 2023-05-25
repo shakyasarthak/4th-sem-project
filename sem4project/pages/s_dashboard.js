@@ -232,6 +232,10 @@ const StudentDashboard = () => {
                       <li class="list-group-item" key={assignment.id}>
                         {assignment.title}
                         {assignment.description}
+                        <br/>
+                        <br/>
+                        <a href={assignment.link} target="blank">{assignment.link} </a>
+                        <br/>
                         {isAssignmentSubmitted(
                           selectedClass.classCode,
                           assignment.id
@@ -276,8 +280,8 @@ const StudentDashboard = () => {
                     {selectedClass.quizs.map((quiz) => (
                       <li class="list-group-item" key={quiz.id}>
                         <p>
-                          {quiz.description} Link:{" "}
-                          <a href={quiz.link}>{quiz.link} </a>
+                          {quiz.description} <br/>{" "}
+                          <a href={quiz.link} target="blank">{quiz.link} </a>
                         </p>
                       </li>
                     ))}

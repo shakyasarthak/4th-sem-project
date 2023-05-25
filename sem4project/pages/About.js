@@ -7,7 +7,9 @@ import Image from 'next/image'
 const AboutUs = () => {
   return (
     <main>
+      <div style={{background:'#FDF8F3'}}>
       <PageHero  />
+        
       <Wrapper className='page section section-center'>
         <Image src={aboutImg} alt='nice desk' />
         <article>
@@ -16,23 +18,21 @@ const AboutUs = () => {
             <div className='underline'></div>
           </div>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
-            accusantium sapiente tempora sed dolore esse deserunt eaque
-            excepturi, delectus error accusamus vel eligendi, omnis beatae.
-            Quisquam, dicta. Eos quod quisquam esse recusandae vitae neque
-            dolore, obcaecati incidunt sequi blanditiis est exercitationem
-            molestiae delectus saepe odio eligendi modi porro eaque in libero
-            minus unde sapiente consectetur architecto. Ullam rerum, nemo iste
-            ex, eaque perspiciatis nisi, eum totam velit saepe sed quos
-            similique amet. Ex, voluptate accusamus nesciunt totam vitae esse
-            iste.  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
-            accusantium sapiente tempora sed dolore esse deserunt eaque
-            excepturi, delectus error accusamus vel eligendi, omnis beatae.
+            KU Pathsala is is an e-learning platform created as a semester project by 4th semester CS students
+             that provides a platform for the
+            students of Kathmandu University to access the resources provided by
+            the teachers. It is a platform where the students can access the
+            resources provided by the teachers and the teachers can upload the
+            resources for the students. The resources include the assignments,
+            quizzes, notes, and other resources. The students can access the
+            resources by logging in to the website. The teachers can upload the
+            resources by logging in to the website. 
          
           </p>
         </article>
       </Wrapper>
       <PageHero  />
+      </div>
     </main>
   )
 }

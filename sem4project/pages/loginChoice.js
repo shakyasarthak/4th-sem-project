@@ -35,9 +35,9 @@ const LoginChoice = () => {
         <button onClick={() => signIn("google", { callbackUrl: "/t_dashboard" })}>
           Teacher Login
         </button>
-        <button onClick={() => signIn("google", { callbackUrl: "/adminDashboard" })}>
+        {/* <button onClick={() => signIn("google", { callbackUrl: "/adminDashboard" })}>
           Admin Login
-        </button>
+        </button> */}
       </div>
       <style jsx>{`
         .container {
