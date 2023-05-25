@@ -27,7 +27,7 @@ body {
     margin-top: 50px;
     padding-right: 15px;
     padding-left: 15px;
-    min
+    
   
   }
   .notes-list{
