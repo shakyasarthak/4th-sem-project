@@ -221,6 +221,7 @@ import prisma from './../prisma/prisma';
 
 
 //get the server side prop
+
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 

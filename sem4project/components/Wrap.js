@@ -27,6 +27,7 @@ body {
     margin-top: 50px;
     padding-right: 15px;
     padding-left: 15px;
+    min-height: calc(100vh - 40px);
   
   }
   .notes-list{
