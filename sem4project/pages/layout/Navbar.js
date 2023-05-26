@@ -43,6 +43,7 @@ const Navbar =() => {
           {userEmail.endsWith("@gmail.com") && <Link class ={x.menu} href ="/t_dashboard">DASHBOARD</Link>}
           {status == "authenticated" && <Link class = {x.menu} href="/addpastPaper">PAST PAPER</Link>}
           {status == "authenticated" && <Link class = {x.menu} href="/notes">MY NOTES</Link>}
+          {status == "authenticated" && <Link class = {x.menu} href="/Quiz_final">QUIZZES</Link>}
           {userEmail.endsWith("@student.ku.edu.np") && <Link href="">WELCOME {session.user.name}</Link>}
           {userEmail.endsWith("@gmail.com") && <Link href="">WELCOME {session.user.name}</Link>}
 
